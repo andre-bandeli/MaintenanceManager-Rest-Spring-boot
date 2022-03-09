@@ -21,7 +21,7 @@ public class ProdutoService {
         return repository.findAll();
     }
 
-        public Produto produtoPorId(Long id) {
+    public Produto produtoPorId(Long id) {
         return repository.findById(id).orElse(null);
     }
 
