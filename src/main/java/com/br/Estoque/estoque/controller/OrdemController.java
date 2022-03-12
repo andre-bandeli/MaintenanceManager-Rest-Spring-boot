@@ -39,7 +39,7 @@ public class OrdemController {
 
     @GetMapping("/ordem/remove/{id}")
     public String  removeOrdem(@PathVariable Long id) {
-        return ordemServico(id);
+        return ordemService.deleteOrdemById(id);
     }
 
     @PutMapping("/ordem/update/{id}")
