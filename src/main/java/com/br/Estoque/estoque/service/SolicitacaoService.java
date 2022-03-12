@@ -1,9 +1,6 @@
 package com.br.Estoque.estoque.service;
 
-
-import com.br.Estoque.estoque.model.Funcionario;
 import com.br.Estoque.estoque.model.SolicitacaoServico;
-import com.br.Estoque.estoque.repository.FuncionarioRepository;
 import com.br.Estoque.estoque.repository.SolicitacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
