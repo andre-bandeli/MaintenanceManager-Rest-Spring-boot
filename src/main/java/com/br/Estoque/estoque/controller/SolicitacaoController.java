@@ -27,7 +27,7 @@ public class SolicitacaoController {
     }
 
     @GetMapping("/solicitacoes/addList")
-    public List<SolicitacaoServico> addListSolicitacoess(List<SolicitacaoServico> solicitacaoServicos) {
+    public List<SolicitacaoServico> addListSolicitacoes(List<SolicitacaoServico> solicitacaoServicos) {
         return solicitacaoService.salvarSolicitacoes(solicitacaoServicos);
     }
 
