@@ -1,14 +1,15 @@
 package com.br.Estoque.estoque.service;
 
 import com.br.Estoque.estoque.model.OrdemServico;
-import com.br.Estoque.estoque.model.SolicitacaoServico;
 import com.br.Estoque.estoque.repository.OrdemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.List;
 
-@Entity
+@Service
 public class OrdemService {
 
     @Autowired

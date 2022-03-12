@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "solicitacao")
-    public class SolicitacaoServico {
+public class SolicitacaoServico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,6 +36,10 @@ import java.util.Date;
     @NotNull
     @Column(name = "descricao")
     private String descricao;
+    @NotNull
+    @OneToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name="ordem_servico")
+    private OrdemServico ordemServico;
 
     public Long getId() {
         return id;
@@ -99,5 +103,13 @@ import java.util.Date;
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public OrdemServico getOrdemServico() {
+        return ordemServico;
+    }
+
+    public void setOrdemServico(OrdemServico ordemServico) {
+        this.ordemServico = ordemServico;
     }
 }

@@ -4,9 +4,11 @@ package com.br.Estoque.estoque.service;
 import com.br.Estoque.estoque.model.Funcionario;
 import com.br.Estoque.estoque.repository.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class FuncionarioService {
 
     @Autowired

@@ -6,8 +6,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "ordem_servico")
 public class OrdemServico {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,10 +22,7 @@ public class OrdemServico {
     @NotNull
     @Column(name = "data_fechamento")
     private Date dataFechamento;
-    @NotNull
-    @OneToOne(cascade = CascadeType.REFRESH)
-    @Column(name = "solicitacao")
-    private SolicitacaoServico solicitacaoServico;
+
 
     public Long getId() {
         return id;
@@ -59,11 +56,4 @@ public class OrdemServico {
         this.dataFechamento = dataFechamento;
     }
 
-    public SolicitacaoServico getSolicitacaoServico() {
-        return solicitacaoServico;
-    }
-
-    public void setSolicitacaoServico(SolicitacaoServico solicitacaoServico) {
-        this.solicitacaoServico = solicitacaoServico;
-    }
 }
