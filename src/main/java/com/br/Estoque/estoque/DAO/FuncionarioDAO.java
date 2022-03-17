@@ -1,10 +1,9 @@
-package com.br.Estoque.estoque.funcionario.DAO;
+package com.br.Estoque.estoque.DAO;
 
 
 import com.br.Estoque.estoque.factory.Factory;
 import com.br.Estoque.estoque.funcionario.model.Funcionario;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

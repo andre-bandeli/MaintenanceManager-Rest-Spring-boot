@@ -1,9 +1,8 @@
 package com.br.Estoque.estoque;
 
-import com.br.Estoque.estoque.funcionario.DAO.FuncionarioDAO;
+import com.br.Estoque.estoque.DAO.FuncionarioDAO;
 import com.br.Estoque.estoque.funcionario.model.Funcionario;
-import com.br.Estoque.estoque.funcionario.servico.FuncionarioService;
-import com.br.Estoque.estoque.solicitacao.DAO.SolicitacaoDAO;
+import com.br.Estoque.estoque.DAO.SolicitacaoDAO;
 import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

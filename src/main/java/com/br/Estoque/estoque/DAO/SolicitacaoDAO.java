@@ -1,10 +1,10 @@
-package com.br.Estoque.estoque.solicitacao.DAO;
+package com.br.Estoque.estoque.DAO;
 
 
+import com.br.Estoque.estoque.DAO.FuncionarioDAO;
 import com.br.Estoque.estoque.factory.Factory;
 import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -32,7 +32,7 @@ public class SolicitacaoDAO {
             System.out.println("objeto salvo com sucesso! ");
 
         }catch (SQLException exception) {
-            Logger.getLogger(com.br.Estoque.estoque.funcionario.DAO.FuncionarioDAO.class.getName()).log(Level.SEVERE, null, exception);
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, exception);
             System.out.println("Erro: " + exception);
         }finally {
             Factory.closeConnection(connection, pst);
