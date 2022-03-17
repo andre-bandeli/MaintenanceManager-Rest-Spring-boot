@@ -34,6 +34,23 @@ public class FuncionarioDAO {
         }
     }
 
+    public void removerFuncionario(Long id) {
+        Connection connection = Factory.getConnection();
+        PreparedStatement pst = null;
+
+        try {
+            pst = connection.prepareStatement("DELETE  FROM funcionario WHERE (id) VALUES(?)");
+            pst.executeUpdate();
+            System.out.println("objeto deletado com sucesso! ");
+
+        }catch (SQLException exception) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, exception);
+            System.out.println("Erro: " + exception);
+        }finally {
+            Factory.closeConnection(connection, pst);
+        }
+    }
+
 
 
 }

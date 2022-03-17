@@ -12,7 +12,6 @@ public class Solicitacao {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
     @Column(name = "codigo")
     private int codigo;
 
@@ -25,9 +24,9 @@ public class Solicitacao {
     @Column(name = "nome_solicitante")
     private String nomeSolicitante;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "data_solicitacao")
-    private Date dataSolicitacao;
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @Column(name = "data_solicitacao")
+//    private java.sql.Date dataSolicitacao;
 
     @Column(name = "is_ordem")
     private Boolean isOrdemServico = false;
@@ -78,13 +77,13 @@ public class Solicitacao {
         this.nomeSolicitante = nomeSolicitante;
     }
 
-    public Date getDataSolicitacao() {
-        return dataSolicitacao;
-    }
-
-    public void setDataSolicitacao(Date dataSolicitacao) {
-        this.dataSolicitacao = dataSolicitacao;
-    }
+//    public java.sql.Date getDataSolicitacao() {
+//        return dataSolicitacao;
+//    }
+//
+//    public void setDataSolicitacao(java.sql.Date dataSolicitacao) {
+//        this.dataSolicitacao = dataSolicitacao;
+//    }
 
     public Boolean getActive() {
         return isOrdemServico;
