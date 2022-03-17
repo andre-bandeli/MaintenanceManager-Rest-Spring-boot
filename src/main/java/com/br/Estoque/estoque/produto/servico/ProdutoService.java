@@ -1,7 +1,7 @@
-package com.br.Estoque.estoque.service;
+package com.br.Estoque.estoque.produto.servico;
 
-import com.br.Estoque.estoque.model.Produto;
-import com.br.Estoque.estoque.repository.ProdutoRepository;
+import com.br.Estoque.estoque.produto.model.Produto;
+import com.br.Estoque.estoque.produto.repositorio.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

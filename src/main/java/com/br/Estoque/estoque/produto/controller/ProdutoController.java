@@ -1,8 +1,8 @@
-package com.br.Estoque.estoque.controller;
+package com.br.Estoque.estoque.produto.controller;
 
 
-import com.br.Estoque.estoque.model.Produto;
-import com.br.Estoque.estoque.service.ProdutoService;
+import com.br.Estoque.estoque.produto.model.Produto;
+import com.br.Estoque.estoque.produto.servico.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

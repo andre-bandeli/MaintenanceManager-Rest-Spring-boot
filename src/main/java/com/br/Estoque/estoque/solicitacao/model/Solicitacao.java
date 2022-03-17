@@ -1,6 +1,4 @@
-package com.br.Estoque.estoque.model;
-
-import com.sun.istack.NotNull;
+package com.br.Estoque.estoque.solicitacao.model;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,38 +6,37 @@ import java.util.Date;
 
 @Entity
 @Table(name = "solicitacao")
-public class SolicitacaoServico {
+public class Solicitacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
+
     @Column(name = "codigo")
-    private Long codigo;
-    @NotNull
+    private int codigo;
+
     @Column(name = "maquina")
     private String maquina;
-    @NotNull
+
     @Column(name = "setor")
     private String setor;
-    @NotNull
+
     @Column(name = "nome_solicitante")
     private String nomeSolicitante;
-    @NotNull
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_solicitacao")
     private Date dataSolicitacao;
-    @NotNull
+
     @Column(name = "is_ordem")
-    private Boolean isOrdemServico = true;
-    @NotNull
+    private Boolean isOrdemServico = false;
+
     @Column(name = "descricao")
     private String descricao;
-    @NotNull
-    @OneToOne(cascade = CascadeType.REFRESH)
-    @JoinColumn(name="ordem_servico")
-    private OrdemServico ordemServico;
+
+    public Solicitacao() {
+    }
 
     public Long getId() {
         return id;
@@ -49,11 +46,11 @@ public class SolicitacaoServico {
         this.id = id;
     }
 
-    public Long getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(Long codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
@@ -105,11 +102,5 @@ public class SolicitacaoServico {
         this.descricao = descricao;
     }
 
-    public OrdemServico getOrdemServico() {
-        return ordemServico;
-    }
 
-    public void setOrdemServico(OrdemServico ordemServico) {
-        this.ordemServico = ordemServico;
-    }
 }

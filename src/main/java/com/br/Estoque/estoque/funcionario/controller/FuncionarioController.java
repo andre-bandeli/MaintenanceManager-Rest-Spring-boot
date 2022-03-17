@@ -1,8 +1,8 @@
-package com.br.Estoque.estoque.controller;
+package com.br.Estoque.estoque.funcionario.controller;
 
 
-import com.br.Estoque.estoque.model.Funcionario;
-import com.br.Estoque.estoque.service.FuncionarioService;
+import com.br.Estoque.estoque.funcionario.model.Funcionario;
+import com.br.Estoque.estoque.funcionario.servico.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

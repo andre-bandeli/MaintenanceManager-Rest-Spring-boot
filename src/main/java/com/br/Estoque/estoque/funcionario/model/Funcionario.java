@@ -1,4 +1,4 @@
-package com.br.Estoque.estoque.model;
+package com.br.Estoque.estoque.funcionario.model;
 
 
 import javax.persistence.*;
@@ -14,7 +14,6 @@ public class Funcionario {
 
     public Funcionario() {
     }
-
 
     public Long getId() {
         return id;

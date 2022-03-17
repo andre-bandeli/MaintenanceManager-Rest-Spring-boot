@@ -1,5 +1,6 @@
-package com.br.Estoque.estoque.model;
+package com.br.Estoque.estoque.ordem.model;
 
+import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "ordem_servico")
-public class OrdemServico {
+public class Ordem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,6 +24,17 @@ public class OrdemServico {
     @Column(name = "data_fechamento")
     private Date dataFechamento;
 
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name="solicitacao_servico", referencedColumnName = "id")
+    private Solicitacao solicitacaoServico;
+
+    public Ordem() {
+    }
+
+    @PrePersist
+    public void onPrepersist() {
+        solicitacaoServico.setActive(true);
+    }
 
     public Long getId() {
         return id;
@@ -54,6 +66,14 @@ public class OrdemServico {
 
     public void setDataFechamento(Date dataFechamento) {
         this.dataFechamento = dataFechamento;
+    }
+
+    public Solicitacao getSolicitacaoServico() {
+        return solicitacaoServico;
+    }
+
+    public void setSolicitacaoServico(Solicitacao solicitacaoServico) {
+        this.solicitacaoServico = solicitacaoServico;
     }
 
 }

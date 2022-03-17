@@ -1,6 +1,6 @@
-package com.br.Estoque.estoque.repository;
+package com.br.Estoque.estoque.funcionario.repositorio;
 
-import com.br.Estoque.estoque.model.Funcionario;
+import com.br.Estoque.estoque.funcionario.model.Funcionario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long > {

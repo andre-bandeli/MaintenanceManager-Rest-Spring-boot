@@ -1,8 +1,8 @@
-package com.br.Estoque.estoque.service;
+package com.br.Estoque.estoque.funcionario.servico;
 
 
-import com.br.Estoque.estoque.model.Funcionario;
-import com.br.Estoque.estoque.repository.FuncionarioRepository;
+import com.br.Estoque.estoque.funcionario.model.Funcionario;
+import com.br.Estoque.estoque.funcionario.repositorio.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.br.Estoque.estoque.model;
+package com.br.Estoque.estoque.produto.model;
 
 import javax.persistence.*;
 
@@ -15,7 +15,7 @@ public class Produto {
     private Long codigo;
     private int saldo;
 
-        public Long getId() {
+    public Long getId() {
         return id;
     }
 
