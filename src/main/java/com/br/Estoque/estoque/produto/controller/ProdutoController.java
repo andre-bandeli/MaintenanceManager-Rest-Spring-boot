@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController()
+@RequestMapping("/produtos")
 public class ProdutoController {
 
     @Autowired
@@ -19,27 +20,27 @@ public class ProdutoController {
         return "ok";
     }
 
-    @PostMapping("/produtos/add")
+    @PostMapping("/add")
     public Produto addProduto(@RequestBody Produto produto) {
         return service.saveProduto(produto);
     }
 
-    @GetMapping("/produtos")
+    @GetMapping("/list")
     public List<Produto> ProdutoAdd() {
         return service.listAll();
     }
 
-    @GetMapping("/produtos/{id}")
+    @GetMapping("/{id}")
     public Produto produtoPorId(@PathVariable Long id) {
         return service.produtoPorId(id);
     }
 
-    @PutMapping("/produtos/entrada/{id}/{valor}")
+    @PutMapping("/entrada/{id}/{valor}")
     public Produto entrada(@PathVariable Long id, @PathVariable int valor) {
         return service.entrada(id, valor);
     }
 
-    @PutMapping("/produtos/saida/{id}/{valor}")
+    @PutMapping("/saida/{id}/{valor}")
     public Produto saida(@PathVariable Long id, @PathVariable int valor) {
         return service.saida(id, valor);
     }

@@ -8,37 +8,38 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/ordem")
 public class OrdemController {
 
     @Autowired
     private OrdemService ordemService;
 
-    @GetMapping("/ordem")
+    @GetMapping("/")
     public String index() {
         return "Ordens";
     }
 
-    @PostMapping("/ordem/add")
+    @PostMapping("/add")
     public Ordem save(Ordem ordemServico){
         return ordemService.saveOrdem(ordemServico);
     }
 
-    @PostMapping("/ordem/addList")
+    @PostMapping("/addList")
     public List<Ordem> addListOrdem(List<Ordem> ordemServico) {
         return ordemService.salvarOrdem(ordemServico);
     }
 
-    @GetMapping("/ordem/{id}")
+    @GetMapping("/{id}")
     public Ordem getOrdemById(@PathVariable Long id) {
         return ordemService.getOrdemById(id);
     }
 
-    @GetMapping("/ordem/remove/{id}")
+    @GetMapping("/remove/{id}")
     public String  removeOrdem(@PathVariable Long id) {
         return ordemService.deleteOrdemById(id);
     }
 
-    @PutMapping("/ordem/update/{id}")
+    @PutMapping("/update/{id}")
     public Ordem updateOrdem(Ordem ordemServico) {
         return  ordemService.updateOrdem(ordemServico);
     }

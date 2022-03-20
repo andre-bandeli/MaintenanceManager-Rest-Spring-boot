@@ -4,45 +4,43 @@ package com.br.Estoque.estoque.funcionario.controller;
 import com.br.Estoque.estoque.funcionario.model.Funcionario;
 import com.br.Estoque.estoque.funcionario.servico.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/funcionarios")
 public class FuncionarioController {
 
     @Autowired
     private FuncionarioService funcionarioService;
 
-    @GetMapping("/funcionarios")
+    @GetMapping("/")
     public String index() {
         return "Funcionarios";
     }
 
-    @GetMapping("/funcionarios/add")
+    @GetMapping("/add")
     public Funcionario save(Funcionario funcionario) {
         return funcionarioService.saveFuncionario(funcionario);
     }
 
-    @GetMapping("/funcionarios/addList")
+    @GetMapping("/addList")
     public List<Funcionario> addListFuncionarios(List<Funcionario> funcionarios) {
         return funcionarioService.salvarFuncionarios(funcionarios);
     }
 
-    @GetMapping("/funcionarios/{id}")
+    @GetMapping("/{id}")
     public Funcionario getFuncionarioById(@PathVariable Long id) {
         return funcionarioService.getFuncionarioById(id);
     }
 
-    @GetMapping("/funcionarios/remove/{id}")
+    @GetMapping("/remove/{id}")
     public String  removeFuncionario(@PathVariable Long id) {
         return funcionarioService.deleteFuncionarioById(id);
     }
 
-    @PutMapping("/funcionarios/update/{id}")
+    @PutMapping("/update/{id}")
     public Funcionario updateFuncionario(Funcionario funcionario) {
         return  funcionarioService.updateFuncionario(funcionario);
     }
