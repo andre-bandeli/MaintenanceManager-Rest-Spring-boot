@@ -19,7 +19,7 @@ public class SolicitacaoDAO {
         PreparedStatement pst = null;
 
         try {
-            pst = connection.prepareStatement("INSERT INTO solicitacao (id, nome)VALUES( ?, ?, ?, ?, ?, ?, ? )");
+            pst = connection.prepareStatement("INSERT INTO solicitacao (id, codigo, maquina, setor, nome_solicitante, is_ordem, descricao )VALUES( ?, ?, ?, ?, ?, ?, ? )");
             pst.setLong(1, solicitacao.getId());
             pst.setInt(2, solicitacao.getCodigo());
             pst.setString(3, solicitacao.getMaquina());
@@ -32,7 +32,7 @@ public class SolicitacaoDAO {
             System.out.println("objeto salvo com sucesso! ");
 
         }catch (SQLException exception) {
-            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, exception);
+            Logger.getLogger(SolicitacaoDAO.class.getName()).log(Level.SEVERE, null, exception);
             System.out.println("Erro: " + exception);
         }finally {
             Factory.closeConnection(connection, pst);

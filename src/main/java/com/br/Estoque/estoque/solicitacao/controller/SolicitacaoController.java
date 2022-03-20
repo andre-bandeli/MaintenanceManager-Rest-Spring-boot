@@ -4,10 +4,12 @@ import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
 import com.br.Estoque.estoque.solicitacao.servico.serviceSolicitacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class SolicitacaoController {
@@ -16,9 +18,11 @@ public class SolicitacaoController {
     private serviceSolicitacao solicitacaoService;
 
     @GetMapping("/solicitacoes")
-    public ModelAndView solicitacoesHome() {
-        ModelAndView mv = new ModelAndView("/template/pages/so");
-        return mv;
+    public String solicitacoesHome(Model model) {
+        Solicitacao solicitacao = new Solicitacao();
+        List<Solicitacao> list = solicitacaoService.listSolicitacoes(solicitacao);
+        model.addAttribute("solicitacao", list);
+        return "template/pages/solicitacao";
     }
     @GetMapping("/so")
     public List<Solicitacao> solicitacaoServicos(Solicitacao solicitacaoServico){

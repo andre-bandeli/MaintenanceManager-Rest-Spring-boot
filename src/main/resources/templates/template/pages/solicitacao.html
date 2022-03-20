@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:c="http://www.w3.org/1999/html">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -380,29 +380,29 @@
                     <p class="card-description"> Basic form layout </p>
                     <form class="forms-sample">
                       <div class="form-group">
-                        <label for="exampleInputUsername1">Código</label>
-                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                        <label for="">Código</label>
+                        <input type="text" class="form-control" id="codigo" placeholder="Codigo">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Máquina</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        <label for="">Máquina</label>
+                        <input type="text" class="form-control" id="maquina" placeholder="Maquina">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Setor</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <label for="">Setor</label>
+                        <input type="text" class="form-control" id="setor" placeholder="Setor">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputConfirmPassword1">Nome Solicitante</label>
-                        <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
+                        <label for="">Nome Solicitante</label>
+                        <input type="text" class="form-control" id="nome_solicitante" placeholder="Nome solicitante">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputConfirmPassword1">Descrição</label>
-                        <input type="password" class="form-control" id="" placeholder="Password">
+                        <label for="">Descrição</label>
+                        <input type="text" class="form-control" id="desscricao" placeholder="Descrição">
                       </div>
 
                       <div class="form-check form-check-flat form-check-primary">
                         <label class="form-check-label">
-                          <input type="checkbox" class="form-check-input"> Remember me </label>
+                          <input type="checkbox" class="form-check-input">Ativo </label>
                       </div>
                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
                       <button class="btn btn-dark">Cancel</button>
@@ -456,55 +456,41 @@
                   </div>
                 </div>
               </div>
+
               <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample">
-                      <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleSelectGender">Gender</label>
-                        <select class="form-control" id="exampleSelectGender">
-                          <option>Male</option>
-                          <option>Female</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputCity1">City</label>
-                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleTextarea1">Textarea</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                      <button class="btn btn-dark">Cancel</button>
-                    </form>
+                    <h4 class="card-title">Lista de Solicitações</h4>
+                    <p class="card-description"> Lista de solicitações de serviço </p>
+                    <table>
+                      <thead>
+
+                      <tr>
+                        <th class="tdId"> id </th>
+                        <th class="tdId"> Código </th>
+                        <th class="tdMaq"> Máquina </th>
+                        <th class="tdSet" > Setor </th>
+                        <th class="tdNom"> Nome Solicitante </th>
+                        <th class="tdDes"> Descricao </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+
+                        <tr th:each="sol : ${solicitacao}">
+                          <th class="tdId" th:text="${sol.id}"></th>
+                          <td class="tdId" th:text="${sol.codigo}"></td>
+                          <td class="tdId" th:text="${sol.maquina}"></td>
+                          <td class="tdId" th:text="${sol.setor}"></td>
+                          <td class="tdId" th:text="${sol.nomeSolicitante}"></td>
+                          <td class="tdId" th:text="${sol.descricao}"></td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
+
+
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">

@@ -15823,6 +15823,25 @@ code {
   .stretch-card > .card {
     width: 100%;
     min-width: 100%; }
+  .stretch-card .tdId {
+    width: 10%;
+    margin-right: 5vh;
+  }
+  .stretch-card .tdMaq {
+    width: 20%;
+    margin-right: 5vh;
+  }
+  .stretch-card .tdSet {
+    width: 20%;
+    margin-right: 5vh;
+  }
+  .stretch-card .tdNom {
+    width: 25%;
+    margin-right: 5vh;
+  }
+  .stretch-card .tdDes {
+    width: 45%;
+  }
 
 @media (min-width: 576px) {
   .border-right-sm {

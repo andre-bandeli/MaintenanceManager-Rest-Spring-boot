@@ -20,7 +20,7 @@ public class FuncionarioDAO {
         try {
             pst = connection.prepareStatement("INSERT INTO funcionario (id, nome)VALUES(?,?)");
             pst.setLong(1, funcionario.getId());
-            pst.setString(2, "Teste");
+            pst.setString(2, funcionario.getNome());
 
             pst.executeUpdate();
             System.out.println("objeto salvo com sucesso! ");
