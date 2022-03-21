@@ -1,13 +1,17 @@
 package com.br.Estoque.estoque.DAO;
 
-
 import com.br.Estoque.estoque.DAO.FuncionarioDAO;
 import com.br.Estoque.estoque.factory.Factory;
 import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -37,6 +41,20 @@ public class SolicitacaoDAO {
         }finally {
             Factory.closeConnection(connection, pst);
         }
+    }
+
+    @PersistenceContext
+    EntityManager em;
+    public int queryMaquinas(int codigo) {
+
+
+        StringBuilder str = new StringBuilder();
+        str.append("SELECT codigo from solicitacao where codigo = :p");
+
+        javax.persistence.Query q = em.createNativeQuery(str.toString());
+        return q.getResultList().size();
+
+
     }
 
 

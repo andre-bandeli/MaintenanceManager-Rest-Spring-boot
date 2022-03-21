@@ -1,37 +1,82 @@
 package com.br.Estoque.estoque.solicitacao.controller;
 
+import com.br.Estoque.estoque.ordem.model.Ordem;
+import com.br.Estoque.estoque.ordem.servico.OrdemService;
 import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
 import com.br.Estoque.estoque.solicitacao.servico.serviceSolicitacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Objects;
 
 @Controller
+@RequestMapping("/solicitacao")
 public class SolicitacaoController {
 
     @Autowired
     private serviceSolicitacao solicitacaoService;
 
-    @GetMapping("/solicitacoes")
+    @Autowired
+    private OrdemService ordemService;
+
+    @GetMapping
     public String solicitacoesHome(Model model) {
+
         Solicitacao solicitacao = new Solicitacao();
         List<Solicitacao> list = solicitacaoService.listSolicitacoes(solicitacao);
         model.addAttribute("solicitacao", list);
+
+        int tamanho = list.size();
+        model.addAttribute("tamanho", tamanho);
+
+        Ordem ordem = new Ordem();
+        List<Ordem> listOrdem = ordemService.listOrdem(ordem);
+        model.addAttribute("ordem", listOrdem);
+
+        int tamanhoOrdem = listOrdem.size();
+        model.addAttribute("tamanhoOrdem", tamanhoOrdem);
+
+        int query = solicitacaoService.queryMaquinas(1515);
+        model.addAttribute("query", query);
+
+        return "template/pages/solicitacao_2";
+    }
+
+    @GetMapping("/addSolicitacao")
+    public String addSolicitacao(Model model) {
+        // create model attribute to bind form data
+        Solicitacao solicitacao = new Solicitacao();
+        model.addAttribute("solicitacao", solicitacao);
+
         return "template/pages/solicitacao";
     }
+    @PostMapping("/saveSolicitacao")
+    public String saveSolicitacao(@ModelAttribute Solicitacao solicitacao, Model model) {
+        solicitacaoService.saveSolicitacao(solicitacao);
+        model.addAttribute("solicitacao", solicitacao);
+        return "/template/index";
+    }
+//    @PostMapping("/add")
+//    public ModelAndView add(@ModelAttribute Solicitacao solicitacao) {
+//
+////        model.addAttribute("solicitacao", solicitacao);
+//        solicitacaoService.saveSolicitacao(solicitacao);
+//        ModelAndView mv = new ModelAndView("template/pages/solicitacaoAdd");
+//
+//        return mv;
+//    }
+
+
     @GetMapping("/so")
     public List<Solicitacao> solicitacaoServicos(Solicitacao solicitacaoServico){
         return solicitacaoService.listSolicitacoes(solicitacaoServico);
-    }
-
-    @PostMapping("/add")
-    public Solicitacao save(Solicitacao solicitacaoServico) {
-        return solicitacaoService.saveSolicitacao(solicitacaoServico);
     }
 
     @PostMapping("/addList")

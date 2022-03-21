@@ -21,7 +21,7 @@ public class EstoqueApplication {
 		Solicitacao solicitacao = new Solicitacao();
 
 		solicitacao.setId(10L);
-		solicitacao.setCodigo(15520);
+		solicitacao.setCodigo(1515);
 		solicitacao.setMaquina("Corte");
 		solicitacao.setSetor("Manutenção");
 		solicitacao.setNomeSolicitante("André");
@@ -33,7 +33,16 @@ public class EstoqueApplication {
 
 
 		solicitacao2.setId(20L);
-		solicitacao2.setCodigo(1550);
+		solicitacao2.setCodigo(1515);
+		solicitacao2.setMaquina("Costura");
+		solicitacao2.setSetor("TC 01");
+		solicitacao2.setNomeSolicitante("José");
+		solicitacao2.setActive(true);
+		solicitacao2.setDescricao("maquina desligou");
+		solicitacaoDAO.criarSolicitacao(solicitacao2);
+
+		solicitacao2.setId(20L);
+		solicitacao2.setCodigo(1515);
 		solicitacao2.setMaquina("Costura");
 		solicitacao2.setSetor("TC 01");
 		solicitacao2.setNomeSolicitante("José");
