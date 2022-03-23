@@ -4,7 +4,6 @@ import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "ordem_servico")
@@ -17,15 +16,14 @@ public class Ordem {
     @Column(name = "codigo")
     private Long codigo;
     @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "data_abertura")
-    private Date dataAbertura;
+    @Column(name = "dataAbertura")
+    private String dataAbertura;
     @NotNull
-    @Column(name = "data_fechamento")
-    private Date dataFechamento;
+    @Column(name = "dataFechamento")
+    private String dataFechamento;
 
     @OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name="solicitacao_servico", referencedColumnName = "id")
+    @JoinColumn(name="solicitacaoServico", referencedColumnName = "id")
     private Solicitacao solicitacaoServico;
 
     public Ordem() {
@@ -52,24 +50,24 @@ public class Ordem {
         this.codigo = codigo;
     }
 
-    public Date getDataAbertura() {
+    public String getDataAbertura() {
         return dataAbertura;
     }
 
-    public void setDataAbertura(Date dataAbertura) {
+    public void setDataAbertura(String dataAbertura) {
         this.dataAbertura = dataAbertura;
     }
 
-    public Date getDataFechamento() {
+    public String getDataFechamento() {
         return dataFechamento;
     }
 
-    public void setDataFechamento(Date dataFechamento) {
+    public void setDataFechamento(String dataFechamento) {
         this.dataFechamento = dataFechamento;
     }
 
-    public Solicitacao getSolicitacaoServico() {
-        return solicitacaoServico;
+    public String getSolicitacaoServico() {
+        return solicitacaoServico.getId().toString();
     }
 
     public void setSolicitacaoServico(Solicitacao solicitacaoServico) {

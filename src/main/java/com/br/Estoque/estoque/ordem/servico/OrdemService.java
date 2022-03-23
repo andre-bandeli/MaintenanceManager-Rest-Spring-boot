@@ -2,6 +2,7 @@ package com.br.Estoque.estoque.ordem.servico;
 
 import com.br.Estoque.estoque.ordem.model.Ordem;
 import com.br.Estoque.estoque.ordem.repositorio.OrdemRepository;
+import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,8 @@ public class OrdemService {
     private OrdemRepository ordemRepository;
 
     public Ordem saveOrdem(Ordem ordemServico) {
-         return ordemRepository.save(ordemServico);
+
+        return ordemRepository.save(ordemServico);
     }
 
     public List<Ordem> salvarOrdem(List <Ordem>  ordemServico) {
@@ -37,5 +39,9 @@ public class OrdemService {
     public Ordem updateOrdem(Ordem ordemServico) {
         Ordem ordemServico1 = ordemRepository.findById(ordemServico.getId()).orElse(null);
         return ordemRepository.save(ordemServico);
+    }
+
+    public void setStatus(Solicitacao solicitacao) {
+        solicitacao.setActive(false);
     }
 }

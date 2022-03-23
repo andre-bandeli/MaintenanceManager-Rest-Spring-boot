@@ -43,6 +43,23 @@ public class SolicitacaoDAO {
         }
     }
 
+    public void setStatus(Solicitacao solicitacao) {
+        Connection connection = Factory.getConnection();
+        PreparedStatement pst = null;
+
+        try {
+            pst = connection.prepareStatement("INSERT INTO solicitacao (is_ordem)" +
+                    "VALUES(?)");
+            pst.setBoolean(1, false);
+            System.out.println("ORDEM CRIADA -> ESTADO MUDOU! ");
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            Factory.closeConnection(connection, pst);
+        }
+
+    }
+
     @PersistenceContext
     EntityManager em;
     public int queryMaquinas(int codigo) {

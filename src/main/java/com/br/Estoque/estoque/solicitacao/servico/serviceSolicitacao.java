@@ -2,6 +2,7 @@ package com.br.Estoque.estoque.solicitacao.servico;
 
 
 import com.br.Estoque.estoque.DAO.SolicitacaoDAO;
+import com.br.Estoque.estoque.ordem.model.Ordem;
 import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
 import com.br.Estoque.estoque.solicitacao.repositorio.SolicitacaoRepository;
 import org.hibernate.service.spi.InjectService;
@@ -48,7 +49,6 @@ public class serviceSolicitacao {
 
 
     public int queryMaquinas(int codigo) {
-
         return solicitacaoDAO.queryMaquinas(1515);
     }
 }

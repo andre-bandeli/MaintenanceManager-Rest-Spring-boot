@@ -43,9 +43,6 @@ public class SolicitacaoController {
         int tamanhoOrdem = listOrdem.size();
         model.addAttribute("tamanhoOrdem", tamanhoOrdem);
 
-        int query = solicitacaoService.queryMaquinas(1515);
-        model.addAttribute("query", query);
-
         return "template/pages/solicitacao_2";
     }
 
@@ -63,16 +60,6 @@ public class SolicitacaoController {
         model.addAttribute("solicitacao", solicitacao);
         return "/template/index";
     }
-//    @PostMapping("/add")
-//    public ModelAndView add(@ModelAttribute Solicitacao solicitacao) {
-//
-////        model.addAttribute("solicitacao", solicitacao);
-//        solicitacaoService.saveSolicitacao(solicitacao);
-//        ModelAndView mv = new ModelAndView("template/pages/solicitacaoAdd");
-//
-//        return mv;
-//    }
-
 
     @GetMapping("/so")
     public List<Solicitacao> solicitacaoServicos(Solicitacao solicitacaoServico){

@@ -1,14 +1,18 @@
 package com.br.Estoque.estoque.produto.controller;
 
 
+import com.br.Estoque.estoque.ordem.model.Ordem;
 import com.br.Estoque.estoque.produto.model.Produto;
 import com.br.Estoque.estoque.produto.servico.ProdutoService;
+import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
+@Controller()
 @RequestMapping("/produtos")
 public class ProdutoController {
 
@@ -26,8 +30,12 @@ public class ProdutoController {
     }
 
     @GetMapping("/list")
-    public List<Produto> ProdutoAdd() {
-        return service.listAll();
+    public String ProdutoHome(Model model) {
+        Produto produto = new Produto();
+        List<Produto> list = service.listAll(produto);
+        model.addAttribute("produto", list);
+
+        return "template/pages/tables/estoque";
     }
 
     @GetMapping("/{id}")

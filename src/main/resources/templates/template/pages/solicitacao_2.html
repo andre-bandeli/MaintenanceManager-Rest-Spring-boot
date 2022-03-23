@@ -99,9 +99,9 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="ui-features/buttons.html">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="ui-features/dropdowns.html">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href="ui-features/typography.html">Typography</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Listar</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Entrada</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Saída</a></li>
               </ul>
             </div>
           </li>
@@ -114,11 +114,11 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="tables/basic-table.html">
+            <a class="nav-link" href="/produtos/list">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
-              <span class="menu-title">Tables</span>
+              <span class="menu-title">Estoque</span>
             </a>
           </li>
           <li class="nav-item menu-items">
@@ -455,6 +455,7 @@
                         <th class="tdSet" > Setor </th>
                         <th class="tdNom"> Nome Solicitante </th>
                         <th class="tdDes"> Descricao </th>
+                        <th class="tdId"> Status </th>
                       </tr>
                       </thead>
                       <tbody>
@@ -466,6 +467,7 @@
                           <td class="tdId" th:text="${sol.setor}"></td>
                           <td class="tdId" th:text="${sol.nomeSolicitante}"></td>
                           <td class="tdId" th:text="${sol.descricao}"></td>
+                          <td class="tdId" th:text="${sol.active}"></td>
                         </tr>
                       </tbody>
                     </table>
@@ -484,19 +486,21 @@
                       <tr>
                         <th class="tdId"> id </th>
                         <th class="tdId"> Código </th>
-                        <th class="tdMaq"> dataAbertura </th>
-                        <th class="tdSet" > dataFechamento </th>
-                        <th class="tdNom"> solicitacaoServico </th>
+                        <th class="tdNom"> Data de Abertura </th>
+                        <th class="tdNom" > Data de Fechamento </th>
+                        <th class="tdId"> SO </th>
+                        <th class="tdNom"> Status </th>
                       </tr>
                       </thead>
                       <tbody>
 
-                      <tr th:each="ord : ${ordem}">
-                        <th class="tdId" th:text="${ord.id}"></th>
-                        <td class="tdId" th:text="${ord.codigo}"></td>
-                        <td class="tdId" th:text="${ord.dataAbertura}"></td>
-                        <td class="tdId" th:text="${ord.dataFechamento}"></td>
-                        <td class="tdId" th:text="${ord.solicitacaoServico}"></td>
+                      <tr th:each="ordens : ${ordem}">
+                        <th class="tdId" th:text="${ordens.id}"></th>
+                        <td class="tdId" th:text="${ordens.codigo}"></td>
+                        <td class="tdNom" th:text="${ordens.dataAbertura}"></td>
+                        <td class="tdNom" th:text="${ordens.dataFechamento}"></td>
+                        <td class="tdId" th:text="${ordens.solicitacaoServico}"></td>
+                        <td class="tdNome" >em processamento</td>
                       </tr>
                       </tbody>
                     </table>
@@ -504,571 +508,6 @@
                 </div>
               </div>
 
-              <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Gráficos Disponibilidade</h4>
-                    <p class="card-description"> Disponibilidade por máquina <code>.operacao-falhas</code>
-                    </p>
-                    <div class="table-responsive">
-                      <table class="table table-striped">
-                        <thead>
-                        <tr>
-                          <th> Código </th>
-                          <th> Máquina </th>
-                          <th> Disponibilidade </th>
-                          <th> Setor </th>
-                          <th> Ultimo Chamado </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="q : ${query}">
-                          <td class="py-1">
-                            <img src="../../../../static/images/faces-clipart/pic-1.png" alt="image" />
-                          </td>
-                          <td th:text="${q}"></td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $ 77.99 </td>
-                          <td> May 15, 2015 </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="../../../../static/images/faces-clipart/pic-2.png" alt="image" />
-                          </td>
-                          <td> Messsy Adam </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $245.30 </td>
-                          <td> July 1, 2015 </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="../../../../static/images/faces-clipart/pic-3.png" alt="image" />
-                          </td>
-                          <td> John Richards </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $138.00 </td>
-                          <td> Apr 12, 2015 </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="../../../../static/images/faces-clipart/pic-4.png" alt="image" />
-                          </td>
-                          <td> Peter Meggik </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $ 77.99 </td>
-                          <td> May 15, 2015 </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="../../../../static/images/faces-clipart/pic-1.png" alt="image" />
-                          </td>
-                          <td> Edward </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $ 160.25 </td>
-                          <td> May 03, 2015 </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="../../../../static/images/faces-clipart/pic-2.png" alt="image" />
-                          </td>
-                          <td> John Doe </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $ 123.21 </td>
-                          <td> April 05, 2015 </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="../../../../static/images/faces-clipart/pic-3.png" alt="image" />
-                          </td>
-                          <td> Henry Tom </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $ 150.00 </td>
-                          <td> June 16, 2015 </td>
-                        </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Procurar Solicitação por:</h4>
-                    <p class="card-description"> Add classes like <code>.form-control-lg</code> and <code>.form-control-sm</code>. </p>
-                    <div class="form-group">
-                      <label>Large input</label>
-                      <input type="text" class="form-control form-control-lg" placeholder="Username" aria-label="Username">
-                    </div>
-                    <div class="form-group">
-                      <label>Default input</label>
-                      <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                    </div>
-                    <div class="form-group">
-                      <label>Small input</label>
-                      <input type="text" class="form-control form-control-sm" placeholder="Username" aria-label="Username">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Select size</h4>
-                    <p class="card-description"> Add classes like <code>.form-control-lg</code> and <code>.form-control-sm</code>. </p>
-                    <div class="form-group">
-                      <label for="exampleFormControlSelect1">Large select</label>
-                      <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlSelect2">Default select</label>
-                      <select class="form-control" id="exampleFormControlSelect2">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlSelect3">Small select</label>
-                      <select class="form-control form-control-sm" id="exampleFormControlSelect3">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Basic input groups</h4>
-                    <p class="card-description"> Basic bootstrap input groups </p>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">@</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text bg-primary text-white">$</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                        <div class="input-group-append">
-                          <span class="input-group-text">.00</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">$</span>
-                        </div>
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">0.00</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                          <button class="btn btn-sm btn-primary" type="button">Search</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div role="separator" class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                          </div>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Find in facebook" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                          <button class="btn btn-sm btn-facebook" type="button">
-                            <i class="mdi mdi-facebook"></i>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Checkbox Controls</h4>
-                    <p class="card-description">Checkbox and radio controls (default appearance is in primary color)</p>
-                    <form>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input"> Default </label>
-                            </div>
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" checked> Checked </label>
-                            </div>
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" disabled> Disabled </label>
-                            </div>
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" disabled checked> Disabled checked </label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value=""> Default </label>
-                            </div>
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" checked> Selected </label>
-                            </div>
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios3" value="option3" disabled> Disabled </label>
-                            </div>
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadio2" id="optionsRadios4" value="option4" disabled checked> Selected and disabled </label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <div class="card-body">
-                    <p class="card-description">Add class <code>.form-check-{color}</code> for checkbox and radio controls in theme colors</p>
-                    <form>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <div class="form-check form-check-primary">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" checked> Primary </label>
-                            </div>
-                            <div class="form-check form-check-success">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" checked> Success </label>
-                            </div>
-                            <div class="form-check form-check-info">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" checked> Info </label>
-                            </div>
-                            <div class="form-check form-check-danger">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" checked> Danger </label>
-                            </div>
-                            <div class="form-check form-check-warning">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" checked> Warning </label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <div class="form-check form-check-primary">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="ExampleRadio1" id="ExampleRadio1" checked> Primary </label>
-                            </div>
-                            <div class="form-check form-check-success">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="ExampleRadio2" id="ExampleRadio2" checked> Success </label>
-                            </div>
-                            <div class="form-check form-check-info">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="ExampleRadio3" id="ExampleRadio3" checked> Info </label>
-                            </div>
-                            <div class="form-check form-check-danger">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="ExampleRadio4" id="ExampleRadio4" checked> Danger </label>
-                            </div>
-                            <div class="form-check form-check-warning">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="ExampleRadio5" id="ExampleRadio5" checked> Warning </label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Inline forms</h4>
-                    <p class="card-description"> Use the <code>.form-inline</code> class to display a series of labels, form controls, and buttons on a single horizontal row </p>
-                    <form class="form-inline">
-                      <label class="sr-only" for="inlineFormInputName2">Name</label>
-                      <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
-                      <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-                      <div class="input-group mb-2 mr-sm-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">@</div>
-                        </div>
-                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
-                      </div>
-                      <div class="form-check mx-sm-2">
-                        <label class="form-check-label">
-                          <input type="checkbox" class="form-check-input" checked> Remember me </label>
-                      </div>
-                      <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 grid-margin">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Horizontal Two column</h4>
-                    <form class="form-sample">
-                      <p class="card-description"> Personal info </p>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">First Name</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Last Name</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Gender</label>
-                            <div class="col-sm-9">
-                              <select class="form-control">
-                                <option>Male</option>
-                                <option>Female</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Date of Birth</label>
-                            <div class="col-sm-9">
-                              <input class="form-control" placeholder="dd/mm/yyyy" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Category</label>
-                            <div class="col-sm-9">
-                              <select class="form-control">
-                                <option>Category1</option>
-                                <option>Category2</option>
-                                <option>Category3</option>
-                                <option>Category4</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Membership</label>
-                            <div class="col-sm-4">
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked> Free </label>
-                              </div>
-                            </div>
-                            <div class="col-sm-5">
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> Professional </label>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <p class="card-description"> Address </p>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Address 1</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">State</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Address 2</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Postcode</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">City</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Country</label>
-                            <div class="col-sm-9">
-                              <select class="form-control">
-                                <option>America</option>
-                                <option>Italy</option>
-                                <option>Russia</option>
-                                <option>Britain</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Select 2</h4>
-                    <div class="form-group">
-                      <label>Single select box using select 2</label>
-                      <select class="js-example-basic-single" style="width:100%">
-                        <option value="AL">Alabama</option>
-                        <option value="WY">Wyoming</option>
-                        <option value="AM">America</option>
-                        <option value="CA">Canada</option>
-                        <option value="RU">Russia</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Multiple select using select 2</label>
-                      <select class="js-example-basic-multiple" multiple="multiple" style="width:100%">
-                        <option value="AL">Alabama</option>
-                        <option value="WY">Wyoming</option>
-                        <option value="AM">America</option>
-                        <option value="CA">Canada</option>
-                        <option value="RU">Russia</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Typeahead</h4>
-                    <p class="card-description"> A simple suggestion engine </p>
-                    <div class="form-group row">
-                      <div class="col">
-                        <label>Basic</label>
-                        <div id="the-basics">
-                          <input class="typeahead" type="text" placeholder="States of USA">
-                        </div>
-                      </div>
-                      <div class="col">
-                        <label>Bloodhound</label>
-                        <div id="bloodhound">
-                          <input class="typeahead" type="text" placeholder="States of USA">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           <!-- content-wrapper ends -->

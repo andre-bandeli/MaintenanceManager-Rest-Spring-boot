@@ -2,6 +2,7 @@ package com.br.Estoque.estoque.ordem.controller;
 
 import com.br.Estoque.estoque.ordem.model.Ordem;
 import com.br.Estoque.estoque.ordem.servico.OrdemService;
+import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class OrdemController {
     }
 
     @PostMapping("/add")
-    public Ordem save(Ordem ordemServico){
+    public Ordem save(Ordem ordemServico, Solicitacao solicitacao){
         return ordemService.saveOrdem(ordemServico);
     }
 
