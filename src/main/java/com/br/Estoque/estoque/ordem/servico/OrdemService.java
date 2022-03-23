@@ -15,7 +15,6 @@ public class OrdemService {
     private OrdemRepository ordemRepository;
 
     public Ordem saveOrdem(Ordem ordemServico) {
-
         return ordemRepository.save(ordemServico);
     }
 
