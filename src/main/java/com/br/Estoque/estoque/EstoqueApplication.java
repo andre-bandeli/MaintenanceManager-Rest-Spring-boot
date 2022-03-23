@@ -1,12 +1,10 @@
 package com.br.Estoque.estoque;
 
-import com.br.Estoque.estoque.DAO.FuncionarioDAO;
-import com.br.Estoque.estoque.DAO.OrdemDAO;
-import com.br.Estoque.estoque.DAO.ProdutoDAO;
+import com.br.Estoque.estoque.DAO.*;
 import com.br.Estoque.estoque.funcionario.model.Funcionario;
-import com.br.Estoque.estoque.DAO.SolicitacaoDAO;
 import com.br.Estoque.estoque.ordem.model.Ordem;
 import com.br.Estoque.estoque.ordem.servico.OrdemService;
+import com.br.Estoque.estoque.produto.model.ListaCompras;
 import com.br.Estoque.estoque.produto.model.Produto;
 import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
 import com.br.Estoque.estoque.home.HomeController;
@@ -113,6 +111,17 @@ public class EstoqueApplication {
 
 		ProdutoDAO produtoDAO = new ProdutoDAO();
 		produtoDAO.criarProduto(produto);
+
+
+		ListaCompras listaCompras = new ListaCompras();
+		listaCompras.setId(55l);
+		listaCompras.setCodigo(54l);
+		listaCompras.setNome("Caneta preta");
+		listaCompras.setDeadline("25-04-2022");
+
+		ListaCompraDAO listaCompraDAO = new ListaCompraDAO();
+		listaCompraDAO.criarListaCompra(listaCompras);
+
 
 
 
