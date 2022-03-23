@@ -9315,7 +9315,7 @@ fieldset:disabled .wizard > .actions a,
 
 .btn-primary, .wizard > .actions a {
   color: #fff;
-  background-color: #0090e7;
+  background-color: transparent;
   border-color: #0090e7; }
   .btn-primary:hover, .wizard > .actions a:hover {
     color: #fff;
@@ -9369,7 +9369,7 @@ fieldset:disabled .wizard > .actions a,
 
 .btn-success {
   color: #fff;
-  background-color: #00d25b;
+  background-color: transparent;
   border-color: #00d25b; }
   .btn-success:hover {
     color: #fff;
@@ -9447,8 +9447,8 @@ fieldset:disabled .wizard > .actions a,
 
 .btn-danger {
   color: #fff;
-  background-color: #fc424a;
-  border-color: #fc424a; }
+  background-color: transparent;
+  border-color: rgba(255, 0, 0, 0.91); }
   .btn-danger:hover {
     color: #fff;
     background-color: #fb1c26;
@@ -15823,26 +15823,10 @@ code {
   .stretch-card > .card {
     width: 100%;
     min-width: 100%; }
-  .stretch-card .tdId {
+  .stretch-card .tab {
     width: 10%;
     margin-right: 5vh;
   }
-  .stretch-card .tdMaq {
-    width: 20%;
-    margin-right: 5vh;
-  }
-  .stretch-card .tdSet {
-    width: 20%;
-    margin-right: 5vh;
-  }
-  .stretch-card .tdNom {
-    width: 25%;
-    margin-right: 5vh;
-  }
-  .stretch-card .tdDes {
-    width: 45%;
-  }
-
 @media (min-width: 576px) {
   .border-right-sm {
     border-right: 1px solid #2c2e33; } }
@@ -16114,9 +16098,11 @@ code {
     height: 42px;
     padding: 0; }
   .btn.btn-icon-text .btn-icon-prepend, .fc button.btn-icon-text .btn-icon-prepend, .ajax-upload-dragdrop .btn-icon-text.ajax-file-upload .btn-icon-prepend, .swal2-modal .swal2-buttonswrapper .btn-icon-text.swal2-styled .btn-icon-prepend, .wizard > .actions a.btn-icon-text .btn-icon-prepend {
-    margin-right: .5rem; }
+    margin-right: .5rem;
+  }
   .btn.btn-icon-text .btn-icon-append, .fc button.btn-icon-text .btn-icon-append, .ajax-upload-dragdrop .btn-icon-text.ajax-file-upload .btn-icon-append, .swal2-modal .swal2-buttonswrapper .btn-icon-text.swal2-styled .btn-icon-append, .wizard > .actions a.btn-icon-text .btn-icon-append {
-    margin-left: .5rem; }
+    margin-left: .5rem;
+  }
   .btn.btn-social-icon, .fc button.btn-social-icon, .ajax-upload-dragdrop .btn-social-icon.ajax-file-upload, .swal2-modal .swal2-buttonswrapper .btn-social-icon.swal2-styled, .wizard > .actions a.btn-social-icon {
     width: 50px;
     height: 50px;

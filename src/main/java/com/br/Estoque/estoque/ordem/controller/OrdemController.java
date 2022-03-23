@@ -27,9 +27,20 @@ public class OrdemController {
         return "template/pages/solicitacao/ordem";
     }
 
-    @PostMapping("/add")
-    public Ordem save(Ordem ordemServico, Solicitacao solicitacao){
-        return ordemService.saveOrdem(ordemServico);
+    @GetMapping("/add")
+    public String addOrdem(Model model) {
+        // create model attribute to bind form data
+        Ordem ordem = new Ordem();
+        model.addAttribute("ordem", ordem);
+
+        return "template/pages/solicitacao/ordemAddForm";
+    }
+
+    @PostMapping("/saveOrdem")
+    public String saveOrdem(@ModelAttribute Ordem ordem, Model model) {
+        ordemService.saveOrdem(ordem);
+        model.addAttribute("ordem", ordem);
+        return "/template/index";
     }
 
     @PostMapping("/addList")
