@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller()
-@RequestMapping("/produtos")
+@RequestMapping("/produto")
 public class ProdutoController {
 
     @Autowired
@@ -29,7 +29,7 @@ public class ProdutoController {
         return "ok";
     }
 
-    @GetMapping("/list")
+    @GetMapping
     public String ProdutoHome(Model model) {
         Produto produto = new Produto();
         List<Produto> list = service.listAll(produto);
@@ -40,7 +40,7 @@ public class ProdutoController {
         model.addAttribute("lista", lista);
 
 
-        return "template/pages/tables/estoque";
+        return "template/pages/estoque/estoque";
     }
 
     @PostMapping("/add")

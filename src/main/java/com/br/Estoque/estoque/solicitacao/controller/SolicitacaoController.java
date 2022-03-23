@@ -7,14 +7,9 @@ import com.br.Estoque.estoque.solicitacao.servico.serviceSolicitacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import java.lang.reflect.Method;
 import java.util.List;
-import java.util.Objects;
 
 @Controller
 @RequestMapping("/solicitacao")
@@ -43,7 +38,7 @@ public class SolicitacaoController {
         int tamanhoOrdem = listOrdem.size();
         model.addAttribute("tamanhoOrdem", tamanhoOrdem);
 
-        return "template/pages/solicitacao_2";
+        return "template/pages/solicitacao/solicitacao";
     }
 
     @GetMapping("/addSolicitacao")
@@ -52,7 +47,7 @@ public class SolicitacaoController {
         Solicitacao solicitacao = new Solicitacao();
         model.addAttribute("solicitacao", solicitacao);
 
-        return "template/pages/solicitacao";
+        return "template/pages/solicitacao/solicitacaoAddForm";
     }
     @PostMapping("/saveSolicitacao")
     public String saveSolicitacao(@ModelAttribute Solicitacao solicitacao, Model model) {
