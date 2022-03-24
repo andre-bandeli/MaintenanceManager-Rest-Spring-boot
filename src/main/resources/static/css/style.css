@@ -15827,6 +15827,59 @@ code {
     width: 10%;
     margin-right: 5vh;
   }
+.stretch-card .card-desc {
+  width: 100%;
+  color: white;
+  display: flex;
+}
+.stretch-card .forms-desc {
+  width: 60%;
+  height: 25px;
+  margin: 2vh;
+  margin-top: 4vh;
+  color: white;
+  display: inline;
+}
+.stretch-card .forms-desc .btns {
+  align-items: end;
+  display: flex;
+  margin: 2vh;
+}
+.stretch-card .card-desc .btns .btn-primary, .stretch-card .forms-desc .btns .btn-success,  .stretch-card .forms-desc .btns .btn-danger   {
+
+  margin-left: 2vh;
+}
+.stretch-card .forms-desc-d {
+  width: 90%;
+  margin: 2vh;
+  margin-top: 4vh;
+  color: white;
+  display: inline;
+}
+.stretch-card .forms-desc-s {
+  width: 10%;
+  border-radius: 50%;
+  margin: 2vh;
+  margin-top: 1vh;
+  color: white;
+  display: inline;
+}
+  .stretch-card .lab {
+    width: 60%;
+    height: 25px;
+    background-color: rgba(0, 0, 0, 0.91);
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+  }
+.stretch-card .lab-d {
+  width: 100%;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.91);
+  border-radius: 20px;
+  color: white;
+
+}
 @media (min-width: 576px) {
   .border-right-sm {
     border-right: 1px solid #2c2e33; } }

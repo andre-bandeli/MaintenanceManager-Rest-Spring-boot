@@ -43,6 +43,36 @@ public class OrdemController {
         return "/template/index";
     }
 
+    @GetMapping("/view/{id}")
+    public String getOrdemById(@PathVariable("id") Long id, Model model) {
+
+        Ordem ordem = ordemService.getOrdemById(id);
+        model.addAttribute("ordem", ordem);
+        return "template/pages/solicitacao/ordemDescricao";
+    }
+
+    @GetMapping("/update/{id}")
+    public String updateOrdem(@PathVariable("id") Long id, Model model) {
+
+        Ordem ordem = ordemService.getOrdemById(id);
+        model.addAttribute("ordem", ordem);
+
+        return "template/pages/solicitacao/ordemUpdateForm";
+    }
+    @PostMapping("/saveUpdate")
+    public String saveUpdate(@ModelAttribute Ordem ordem, Model model) {
+
+        ordem.setId(ordem.getId());
+        ordem.setCodigo(ordem.getCodigo());
+        ordem.setDataAbertura(ordem.getDataAbertura());
+        ordem.setDataFechamento(ordem.getDataFechamento());
+//        ordem.setSolicitacaoServico(ordem.getSolicitacaoServico());
+
+        ordemService.saveOrdem(ordem);
+        model.addAttribute("ordem", ordem);
+        return "redirect:/ordem";
+    }
+
     @PostMapping("/addList")
     public List<Ordem> addListOrdem(List<Ordem> ordemServico) {
         return ordemService.salvarOrdem(ordemServico);
@@ -55,11 +85,8 @@ public class OrdemController {
 
     @GetMapping("/remove/{id}")
     public String  removeOrdem(@PathVariable Long id) {
-        return ordemService.deleteOrdemById(id);
+        ordemService.deleteOrdemById(id);
+        return "redirect:/solicitacao";
     }
 
-    @PutMapping("/update/{id}")
-    public Ordem updateOrdem(Ordem ordemServico) {
-        return  ordemService.updateOrdem(ordemServico);
-    }
 }

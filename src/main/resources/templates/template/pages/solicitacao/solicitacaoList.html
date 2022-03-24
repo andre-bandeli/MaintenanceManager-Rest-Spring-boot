@@ -128,7 +128,6 @@
               <span class="menu-title">Relatórios</span>
             </a>
           </li>
-
           <li class="nav-item menu-items">
             <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
               <span class="menu-icon">
@@ -144,7 +143,7 @@
         <!-- partial:../../partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="/home"><img src="/images/logo-mini.svg" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="/images/logo-mini.svg" alt="logo" /></a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -347,41 +346,44 @@
               </nav>
             </div>
             <div class="row">
+
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Lista de Máquinas e Equipamentos</h4>
-                    <p class="card-description"> Add class <code>.table</code>
+                    <h4 class="card-title">Lista de Solicitação</h4>
+                    <p class="card-description"> Add class <code>.table-dark</code>
                     </p>
                     <p></p>
-                    <a href="/ordem/add"> <button type="button" class="btn btn-success btn-rounded btn-fw">Cadastrar Máquina</button></a>
+                    <a href="/solicitacao/addSolicitacao"> <button type="button" class="btn btn-success btn-rounded btn-fw">Nova Solicitação</button></a>
                     <p></p>
                     <div class="table-responsive">
-                      <table class="table">
+                      <table class="table table-dark">
                         <thead>
                           <tr>
-                            <th>id</th>
-                            <th>Código</th>
-                            <th>Setor</th>
-                            <th>Inicio Operação</th>
-                            <th>Nível Prioridade</th>
-                            <th>Nova Entrada</th>
-                            <th>Nova saida</th>
-                            <th>Detalhar</th>
-                            <th>Remover</th>
+                            <th> id </th>
+                            <th> Código </th>
+                            <th> Máquina </th>
+                            <th> Setor </th>
+                            <th> Nome Solicitante </th>
+                            <th> Descrição </th>
+                            <th> Status </th>
+                            <th>  </th>
+                            <th>  </th>
+                            <th>  </th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr th:each="ativo : ${ativo}">
-                            <td th:text="${ativo.id}"></td>
-                            <td th:text="${ativo.codigo}"></td>
-                            <td th:text="${ativo.setor}"></td>
-                            <td th:text="${ativo.dataInicioOperacao}"></td>
-                            <td th:text="${ativo.nivelPrioridade}"></td>
-                            <td><label class="badge badge-success">Entrada</label></td>
-                            <td><label class="badge badge-warning">Saida</label></td>
-                            <td><label class="badge badge-info">Detalhes</label></td>
-                            <td><label class="badge badge-danger">Remover</label></td>
+                          <tr th:each="solicitacao : ${solicitacao}">
+                            <td th:text="${{solicitacao.id}}"></td>
+                            <td th:text="${solicitacao.codigo}"></td>
+                            <td th:text="${solicitacao.maquina}"></td>
+                            <td th:text="${solicitacao.setor}"></td>
+                            <td th:text="${solicitacao.nomeSolicitante}"></td>
+                            <td th:text="${solicitacao.descricao}"></td>
+                            <td th:text="${solicitacao.active}"></td>
+                            <td><a th:href="@{/solicitacao/view/{id}(id=${solicitacao.id})}"> <img src="/images/views.png" alt="image" width="20px" height="20px"> </a></td>
+                            <td><a th:href="@{/solicitacao/update/{id}(id=${solicitacao.id})}"> <img src="/images/exchange.png" alt="image" width="20px" height="20px" > </a></td>
+                            <td><a th:href="@{/solicitacao/remove/{id}(id=${solicitacao.id})}"><img src="/images/remover.png" alt="image" width="20px" height="20px"> </a></td>
                           </tr>
 
                         </tbody>
@@ -390,9 +392,6 @@
                   </div>
                 </div>
               </div>
-
-
-
 
 
             </div>

@@ -371,8 +371,8 @@
                   <div class="card-body">
                     <h4 class="card-title">Listar Solicitações | Ordens de Serviço</h4>
 
-                    <button type="submit" class="btn btn-primary mr-2">Solicitações</button>
-                    <button type="submit" class="btn btn-primary mr-2">Ordens</button>
+                    <a href="/solicitacao/list"> <button type="submit" class="btn btn-primary mr-2">Solicitações</button></a>
+                    <a href="/ordem"> <button type="submit" class="btn btn-primary mr-2">Ordens</button></a>
 
                   </div>
                 </div>
@@ -444,12 +444,12 @@
                           <td class="tab" th:text="${sol.nomeSolicitante}"></td>
                           <td class="tab" th:text="${sol.descricao}"></td>
                           <td class="tab" th:text="${sol.active}"></td>
-                          <td><button type="button" class="btn btn-primary btn-icon-text">
-                            <i class="mdi mdi-file-check btn-icon-prepend"></i> view </button></td>
-                          <td><button type="button" class="btn btn-success btn-icon-text">
-                            <i class="mdi mdi-alert btn-icon-prepend"></i> upload </button></td>
-                          <td><button type="button" class="btn btn-danger btn-icon-text">
-                            <i class="mdi mdi-upload btn-icon-prepend"></i> remove </button> </td>
+                          <td><a th:href="@{/solicitacao/view/{id}(id=${sol.id})}"><button type="button" class="btn btn-primary btn-icon-text">
+                            <i class="mdi mdi-file-check btn-icon-prepend"></i> view </button></a></td>
+                          <td><a th:href="@{/solicitacao/update/{id}(id=${sol.id})}"><button type="button" class="btn btn-success btn-icon-text">
+                            <i class="mdi mdi-alert btn-icon-prepend"></i> upload </button></a></td>
+                          <td> <a  th:href="@{/solicitacao/remove/{id}(id=${sol.id})}"><button type="button" class="btn btn-danger btn-icon-text">
+                            <i class="mdi mdi-upload btn-icon-prepend"></i> remove </button></a>  </td>
                         </tr>
                       </tbody>
                     </table>
@@ -486,12 +486,12 @@
                         <td class="tab" th:text="${ordens.dataFechamento}"></td>
                         <td class="tab" th:text="${ordens.solicitacaoServico}"></td>
                         <td class="tab" >em processamento</td>
-                        <td><button type="button" class="btn btn-primary btn-icon-text">
-                          <i class="mdi mdi-file-check btn-icon-prepend"></i> view </button></td>
-                        <td><button type="button" class="btn btn-success btn-icon-text">
-                          <i class="mdi mdi-alert btn-icon-prepend"></i> upload </button></td>
-                        <td><button type="button" class="btn btn-danger btn-icon-text">
-                          <i class="mdi mdi-upload btn-icon-prepend"></i> remove </button> </td>
+                        <td><a th:href="@{/ordem/view/{id}(id=${ordens.id})}"><button type="button" class="btn btn-primary btn-icon-text">
+                          <i class="mdi mdi-file-check btn-icon-prepend"></i> view </button></a></td>
+                        <td><a th:href="@{/ordem/update/{id}(id=${ordens.id})}"><button type="button" class="btn btn-success btn-icon-text">
+                          <i class="mdi mdi-alert btn-icon-prepend"></i> upload </button></a></td>
+                        <td><a th:href="@{/ordem/remove/{id}(id=${ordens.id})}"><button type="button" class="btn btn-danger btn-icon-text">
+                          <i class="mdi mdi-upload btn-icon-prepend"></i> remove </button> </a> </td>
                       </tr>
                       </tbody>
                     </table>

@@ -25,6 +25,11 @@ public class ProdutoService {
         return repository.findById(id).orElse(null);
     }
 
+    public String remove(Long id) {
+        repository.deleteById(id);
+        return "Produto removido!!" + id;
+    }
+
     public Produto entrada(Long id, int valor) {
         Produto produto = repository.findById(id).orElse(null);
         try {

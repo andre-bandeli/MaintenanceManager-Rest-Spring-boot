@@ -74,4 +74,6 @@ public class Ordem {
         this.solicitacaoServico = solicitacaoServico;
     }
 
+    public void setSolicitacaoServico(String toString) {
+    }
 }

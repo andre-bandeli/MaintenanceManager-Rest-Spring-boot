@@ -24,10 +24,6 @@ public class ProdutoController {
     @Autowired
     private ListaCompraService listaCompraService;
 
-    @GetMapping("/")
-    public String index() {
-        return "ok";
-    }
 
     @GetMapping
     public String ProdutoHome(Model model) {
@@ -43,9 +39,37 @@ public class ProdutoController {
         return "template/pages/estoque/estoque";
     }
 
-    @PostMapping("/add")
-    public Produto addProduto(@RequestBody Produto produto) {
-        return service.saveProduto(produto);
+
+    @GetMapping("/add")
+    public String addProduto(Model model) {
+        // create model attribute to bind form data
+        Produto produto = new Produto();
+        model.addAttribute("produto", produto);
+
+        return "template/pages/estoque/produtoAddForm";
+    }
+
+
+    @PostMapping("/saveProduto")
+    public String saveProduto(@ModelAttribute Produto produto, Model model) {
+        service.saveProduto(produto);
+        model.addAttribute("produto", produto);
+        return "/template/index";
+    }
+
+    @GetMapping("/remove/{id}")
+    public String  removeProduto(@PathVariable Long id) {
+
+        service.remove(id);
+        return "/template/index";
+    }
+
+    @GetMapping("/view/{id}")
+    public String getProdutoById(@PathVariable("id") Long id, Model model) {
+
+        Produto produto = service.produtoPorId(id);
+        model.addAttribute("produto", produto);
+        return "template/pages/estoque/produtoDescricao";
     }
 
     @GetMapping("/{id}")
