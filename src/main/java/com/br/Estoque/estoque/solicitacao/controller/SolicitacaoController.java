@@ -98,10 +98,10 @@ public class SolicitacaoController {
         return "redirect:/solicitacao";
     }
 
-    @GetMapping("/so")
-    public List<Solicitacao> solicitacaoServicos(Solicitacao solicitacaoServico){
-        return solicitacaoService.listSolicitacoes(solicitacaoServico);
-    }
+//    @GetMapping("/so")
+//    public List<Solicitacao> solicitacaoServicos(Solicitacao solicitacaoServico){
+//        return solicitacaoService.listSolicitacoes(solicitacaoServico);
+//    }
 
     @PostMapping("/addList")
     public List<Solicitacao> addListSolicitacoes(List<Solicitacao> solicitacaoServicos) {

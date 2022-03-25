@@ -27,4 +27,9 @@ public class ListaCompraService {
         return repository.findById(id).orElse(null);
     }
 
+    public String remove(Long id) {
+        repository.deleteById(id);
+        return "Produto removido da lista de compras!!" + id;
+    }
+
 }

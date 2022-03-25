@@ -24,7 +24,7 @@ public class Ativos {
 
     @NotNull
     @Column(name = "dataInicioOperacao")
-    private Date dataInicioOperacao;
+    private String dataInicioOperacao;
 
     @NotNull
     @Column(name = "nivelPrioridade")
@@ -61,11 +61,11 @@ public class Ativos {
         this.setor = setor;
     }
 
-    public Date getDataInicioOperacao() {
+    public String getDataInicioOperacao() {
         return dataInicioOperacao;
     }
 
-    public void setDataInicioOperacao(Date dataInicioOperacao) {
+    public void setDataInicioOperacao(String dataInicioOperacao) {
         this.dataInicioOperacao = dataInicioOperacao;
     }
 

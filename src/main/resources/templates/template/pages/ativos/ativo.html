@@ -35,7 +35,7 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
+                  <h5 class="mb-0 font-weight-normal">André</h5>
                   <span>Gold Member</span>
                 </div>
               </div>
@@ -296,7 +296,7 @@
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
                     <img class="img-xs rounded-circle" src="/images/faces/eu.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry Klein</p>
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">André</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>
@@ -354,7 +354,7 @@
                     <p class="card-description"> Add class <code>.table</code>
                     </p>
                     <p></p>
-                    <a href="/ordem/add"> <button type="button" class="btn btn-success btn-rounded btn-fw">Cadastrar Máquina</button></a>
+                    <a href="/ativo/addAtivo"> <button type="button" class="btn btn-success btn-rounded btn-fw">Cadastrar Máquina</button></a>
                     <p></p>
                     <div class="table-responsive">
                       <table class="table">
@@ -367,21 +367,26 @@
                             <th>Nível Prioridade</th>
                             <th>Nova Entrada</th>
                             <th>Nova saida</th>
-                            <th>Detalhar</th>
-                            <th>Remover</th>
+                            <th class="tab"> Visualizar </th>
+                            <th class="tab"> Atualizar </th>
+                            <th class="tab"> Remover </th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr th:each="ativo : ${ativo}">
-                            <td th:text="${ativo.id}"></td>
-                            <td th:text="${ativo.codigo}"></td>
-                            <td th:text="${ativo.setor}"></td>
-                            <td th:text="${ativo.dataInicioOperacao}"></td>
-                            <td th:text="${ativo.nivelPrioridade}"></td>
+                          <tr th:each="ativos : ${ativos}">
+                            <td th:text="${ativos.id}"></td>
+                            <td th:text="${ativos.codigo}"></td>
+                            <td th:text="${ativos.setor}"></td>
+                            <td th:text="${ativos.dataInicioOperacao}"></td>
+                            <td th:text="${ativos.nivelPrioridade}"></td>
                             <td><label class="badge badge-success">Entrada</label></td>
                             <td><label class="badge badge-warning">Saida</label></td>
-                            <td><label class="badge badge-info">Detalhes</label></td>
-                            <td><label class="badge badge-danger">Remover</label></td>
+                            <td><a th:href="@{/ativo/view/{id}(id=${ativos.id})}"><button type="button" class="btn btn-primary btn-icon-text">
+                              <i class="mdi mdi-file-check btn-icon-prepend"></i> view </button></a></td>
+                            <td><a th:href="@{/ativo/update/{id}(id=${ativos.id})}"><button type="button" class="btn btn-success btn-icon-text">
+                              <i class="mdi mdi-alert btn-icon-prepend"></i> upload </button></a></td>
+                            <td> <a  th:href="@{/ativo/remove/{id}(id=${ativos.id})}"><button type="button" class="btn btn-danger btn-icon-text">
+                              <i class="mdi mdi-upload btn-icon-prepend"></i> remove </button></a>  </td>
                           </tr>
 
                         </tbody>
