@@ -35,28 +35,28 @@ public class EstoqueApplication {
 		solicitacao.setCodigo(1515);
 		solicitacao.setMaquina("Corte");
 		solicitacao.setSetor("Manutenção");
-		solicitacao.setNomeSolicitante("André");
+		solicitacao.setNomeSolicitante("Ana Pereira");
 		solicitacao.setActive(true);
-		solicitacao.setDescricao("maquina deu uma parada");
+		solicitacao.setDescricao("maquina apresentou ruído forte");
 		solicitacaoDAO.criarSolicitacao(solicitacao);
 
 		Solicitacao solicitacao2 = new Solicitacao();
 
 
 		solicitacao2.setId(20L);
-		solicitacao2.setCodigo(1515);
+		solicitacao2.setCodigo(1514);
 		solicitacao2.setMaquina("Costura");
 		solicitacao2.setSetor("TC 01");
-		solicitacao2.setNomeSolicitante("José");
+		solicitacao2.setNomeSolicitante("Joana");
 		solicitacao2.setActive(true);
 		solicitacao2.setDescricao("maquina desligou");
 		solicitacaoDAO.criarSolicitacao(solicitacao2);
 
 		solicitacao2.setId(30L);
-		solicitacao2.setCodigo(1515);
+		solicitacao2.setCodigo(1516);
 		solicitacao2.setMaquina("Costura");
 		solicitacao2.setSetor("TC 01");
-		solicitacao2.setNomeSolicitante("José");
+		solicitacao2.setNomeSolicitante("José Roberto");
 		solicitacao2.setActive(true);
 		solicitacao2.setDescricao("maquina desligou");
 		solicitacaoDAO.criarSolicitacao(solicitacao2);
@@ -64,7 +64,7 @@ public class EstoqueApplication {
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 		Funcionario funcionario = new Funcionario();
 		funcionario.setId(15l);
-		funcionario.setNome("André");
+		funcionario.setNome("André Luiz");
 
 		funcionarioDAO.criarFuncionario(funcionario);
 
@@ -72,7 +72,7 @@ public class EstoqueApplication {
 		OrdemDAO ordemDAO = new OrdemDAO();
 		Ordem ordem = new Ordem();
 		ordem.setId(20L);
-		ordem.setCodigo(1619L);
+		ordem.setCodigo(1678L);
 		ordem.setDataAbertura("21-10-2022");
 		ordem.setDataFechamento("22-10-2022");
 		ordem.setSolicitacaoServico(solicitacao);
@@ -106,7 +106,7 @@ public class EstoqueApplication {
 		produto.setId(25l);
 		produto.setCodigo(455l);
 		produto.setSaldo(150);
-		produto.setNome("Caneta");
+		produto.setNome("Caneta Azul");
 		produto.setSaldoMin(10);
 
 		ProdutoDAO produtoDAO = new ProdutoDAO();

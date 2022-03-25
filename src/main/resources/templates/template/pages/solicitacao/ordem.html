@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Estoque</title>
+    <title>Ordem Servico</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
@@ -365,6 +365,9 @@
                             <th> Data Inicial </th>
                             <th> Data Final </th>
                             <th> Solicitação de Serviço:id </th>
+                            <th class="tab"> Visualizar </th>
+                            <th class="tab"> Atualizar </th>
+                            <th class="tab"> Remover </th>
                           </tr>
                         </thead>
                         <tbody>
@@ -374,6 +377,12 @@
                             <td th:text="${ordens.dataAbertura}"></td>
                             <td th:text="${ordens.dataFechamento}"></td>
                             <td th:text="${ordens.solicitacaoServico}"></td>
+                            <td><a th:href="@{/ordem/view/{id}(id=${ordens.id})}"><button type="button" class="btn btn-primary btn-icon-text">
+                              <i class="mdi mdi-file-check btn-icon-prepend"></i> view </button></a></td>
+                            <td><a th:href="@{/ordem/update/{id}(id=${ordens.id})}"><button type="button" class="btn btn-success btn-icon-text">
+                              <i class="mdi mdi-alert btn-icon-prepend"></i> upload </button></a></td>
+                            <td> <a  th:href="@{/ordem/remove/{id}(id=${ordens.id})}"><button type="button" class="btn btn-danger btn-icon-text">
+                              <i class="mdi mdi-upload btn-icon-prepend"></i> remove </button></a>  </td>
                           </tr>
 
                         </tbody>
