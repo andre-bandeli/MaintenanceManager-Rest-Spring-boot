@@ -17,7 +17,7 @@ public class ListaCompraController {
 
     @GetMapping("/add")
     public String addListaCompras(Model model) {
-        // create model attribute to bind form data
+
         ListaCompras listaCompras = new ListaCompras();
         model.addAttribute("listaCompras", listaCompras);
 
@@ -27,8 +27,10 @@ public class ListaCompraController {
 
     @PostMapping("/saveListaCompras")
     public String saveListaCompras(@ModelAttribute ListaCompras listaCompras, Model model) {
+
         service.saveListaCompras(listaCompras);
         model.addAttribute("listaCompras", listaCompras);
+
         return "/template/index";
     }
 
@@ -44,6 +46,7 @@ public class ListaCompraController {
 
         ListaCompras listaCompras = service.listaComprasPorId(id);
         model.addAttribute("listaCompras", listaCompras);
+
         return "template/pages/estoque/listaCompraDescricao";
     }
 

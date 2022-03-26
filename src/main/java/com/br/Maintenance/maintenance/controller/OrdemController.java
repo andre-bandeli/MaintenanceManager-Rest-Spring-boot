@@ -28,7 +28,7 @@ public class OrdemController {
 
     @GetMapping("/add")
     public String addOrdem(Model model) {
-        // create model attribute to bind form data
+
         Ordem ordem = new Ordem();
         model.addAttribute("ordem", ordem);
 
@@ -37,8 +37,10 @@ public class OrdemController {
 
     @PostMapping("/saveOrdem")
     public String saveOrdem(@ModelAttribute Ordem ordem, Model model) {
+
         ordemService.saveOrdem(ordem);
         model.addAttribute("ordem", ordem);
+
         return "/template/index";
     }
 
@@ -47,6 +49,7 @@ public class OrdemController {
 
         Ordem ordem = ordemService.getOrdemById(id);
         model.addAttribute("ordem", ordem);
+
         return "template/pages/solicitacao/ordemDescricao";
     }
 
@@ -63,6 +66,7 @@ public class OrdemController {
 
         ordemService.saveOrdem(ordem);
         model.addAttribute("ordem", ordem);
+
         return "redirect:/ordem";
     }
 
