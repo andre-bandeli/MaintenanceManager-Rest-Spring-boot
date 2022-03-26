@@ -61,12 +61,6 @@ public class OrdemController {
     @PostMapping("/saveUpdate")
     public String saveUpdate(@ModelAttribute Ordem ordem, Model model) {
 
-        ordem.setId(ordem.getId());
-        ordem.setCodigo(ordem.getCodigo());
-        ordem.setDataAbertura(ordem.getDataAbertura());
-        ordem.setDataFechamento(ordem.getDataFechamento());
-//        ordem.setSolicitacaoServico(ordem.getSolicitacaoServico());
-
         ordemService.saveOrdem(ordem);
         model.addAttribute("ordem", ordem);
         return "redirect:/ordem";

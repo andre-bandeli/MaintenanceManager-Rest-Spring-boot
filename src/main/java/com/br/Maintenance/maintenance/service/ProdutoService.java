@@ -1,5 +1,6 @@
 package com.br.Maintenance.maintenance.service;
 
+import com.br.Maintenance.maintenance.model.ListaCompras;
 import com.br.Maintenance.maintenance.model.Produto;
 import com.br.Maintenance.maintenance.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,13 @@ public class ProdutoService {
             e.printStackTrace();
         }
         return repository.save(produto);
+    }
+
+    public List<Produto> produtoHome() {
+        Produto produto = new Produto();
+        List<Produto> list = repository.findAll();
+
+        return list;
     }
 
 }

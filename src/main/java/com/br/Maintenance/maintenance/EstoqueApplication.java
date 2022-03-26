@@ -1,13 +1,11 @@
 package com.br.Maintenance.maintenance;
 
-import com.br.Estoque.estoque.DAO.*;
 import com.br.Maintenance.maintenance.model.Funcionario;
 import com.br.Maintenance.maintenance.model.Ordem;
 import com.br.Maintenance.maintenance.service.OrdemService;
 import com.br.Maintenance.maintenance.model.ListaCompras;
 import com.br.Maintenance.maintenance.model.Produto;
 import com.br.Maintenance.maintenance.model.Solicitacao;
-import com.br.Estoque.maintenance.DAO.*;
 import com.br.Maintenance.maintenance.DAO.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

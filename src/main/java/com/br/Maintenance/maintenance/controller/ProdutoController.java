@@ -25,14 +25,12 @@ public class ProdutoController {
 
     @GetMapping
     public String ProdutoHome(Model model) {
-        Produto produto = new Produto();
-        List<Produto> list = service.listAll(produto);
-        model.addAttribute("produto", list);
 
-        ListaCompras listaCompras = new ListaCompras();
-        List<ListaCompras> lista = listaCompraService.listAll(listaCompras);
+        List<Produto> l = service.produtoHome();
+        model.addAttribute("produto", l);
+
+        List<ListaCompras> lista = listaCompraService.listaComprasHome();
         model.addAttribute("lista", lista);
-
 
         return "template/pages/estoque/estoque";
     }
@@ -50,8 +48,10 @@ public class ProdutoController {
 
     @PostMapping("/saveProduto")
     public String saveProduto(@ModelAttribute Produto produto, Model model) {
+
         service.saveProduto(produto);
         model.addAttribute("produto", produto);
+
         return "/template/index";
     }
 
@@ -67,6 +67,7 @@ public class ProdutoController {
 
         Produto produto = service.produtoPorId(id);
         model.addAttribute("produto", produto);
+
         return "template/pages/estoque/produtoDescricao";
     }
 

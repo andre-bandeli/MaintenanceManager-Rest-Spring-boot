@@ -57,10 +57,6 @@ public class ListaCompraController {
     }
     @PostMapping("/saveUpdate")
     public String saveUpdate(@ModelAttribute ListaCompras listaCompras, Model model) {
-        listaCompras.setId(listaCompras.getId());
-        listaCompras.setCodigo(listaCompras.getCodigo());
-        listaCompras.setNome(listaCompras.getNome());
-        listaCompras.setDeadline(listaCompras.getDeadline());
 
         service.saveListaCompras(listaCompras);
         model.addAttribute("listaCompras", listaCompras);

@@ -15,6 +15,12 @@ public class OrdemService {
     private OrdemRepository ordemRepository;
 
     public Ordem saveOrdem(Ordem ordemServico) {
+
+        ordemServico.setId(ordemServico.getId());
+        ordemServico.setCodigo(ordemServico.getCodigo());
+        ordemServico.setDataAbertura(ordemServico.getDataAbertura());
+        ordemServico.setDataFechamento(ordemServico.getDataFechamento());
+//        ordemServico.setSolicitacaoServico(ordemServico.getSolicitacaoServico());
         return ordemRepository.save(ordemServico);
     }
 

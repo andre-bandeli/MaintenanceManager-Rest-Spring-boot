@@ -14,6 +14,11 @@ public class ListaCompraService {
     private ListaCompraRepositorio repository;
 
     public ListaCompras saveListaCompras(ListaCompras listaCompras) {
+
+        listaCompras.setId(listaCompras.getId());
+        listaCompras.setCodigo(listaCompras.getCodigo());
+        listaCompras.setNome(listaCompras.getNome());
+        listaCompras.setDeadline(listaCompras.getDeadline());
         return repository.save(listaCompras);
     }
 
@@ -28,6 +33,12 @@ public class ListaCompraService {
     public String remove(Long id) {
         repository.deleteById(id);
         return "Produto removido da lista de compras!!" + id;
+    }
+
+    public List<ListaCompras> listaComprasHome() {
+        ListaCompras listaCompras = new ListaCompras();
+        List<ListaCompras> lista = repository.findAll();
+        return lista;
     }
 
 }
