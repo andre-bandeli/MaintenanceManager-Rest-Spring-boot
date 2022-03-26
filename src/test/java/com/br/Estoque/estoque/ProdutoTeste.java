@@ -1,8 +1,7 @@
 package com.br.Estoque.estoque;
 
 
-import com.br.Estoque.estoque.produto.model.Produto;
-import com.br.Estoque.estoque.produto.servico.ProdutoService;
+import com.br.Maintenance.maintenance.model.Produto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

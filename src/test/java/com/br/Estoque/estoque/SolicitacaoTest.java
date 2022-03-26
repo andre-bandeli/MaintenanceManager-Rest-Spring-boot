@@ -1,10 +1,9 @@
 package com.br.Estoque.estoque;
 
 
-import com.br.Estoque.estoque.solicitacao.model.Solicitacao;
+import com.br.Maintenance.maintenance.model.Solicitacao;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.configuration.IMockitoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 
