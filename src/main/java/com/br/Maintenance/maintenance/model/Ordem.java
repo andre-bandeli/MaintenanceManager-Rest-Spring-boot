@@ -3,6 +3,7 @@ package com.br.Maintenance.maintenance.model;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "ordem_servico")
@@ -11,18 +12,21 @@ public class Ordem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     @NotNull
-    @Column(name = "codigo")
     private Long codigo;
+
+
     @NotNull
-    @Column(name = "dataAbertura")
-    private String dataAbertura;
+    @Column(name = "data_abertura")
+    private Date dataAbertura;
+
     @NotNull
-    @Column(name = "dataFechamento")
-    private String dataFechamento;
+    @Column(name = "data_fechamento")
+    private Date dataFechamento;
 
     @OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name="solicitacaoServico", referencedColumnName = "id")
+    @JoinColumn(name="solicitacao_servico", referencedColumnName = "id")
     private Solicitacao solicitacaoServico;
 
     public Ordem() {
@@ -49,19 +53,19 @@ public class Ordem {
         this.codigo = codigo;
     }
 
-    public String getDataAbertura() {
+    public Date getDataAbertura() {
         return dataAbertura;
     }
 
-    public void setDataAbertura(String dataAbertura) {
+    public void setDataAbertura(Date dataAbertura) {
         this.dataAbertura = dataAbertura;
     }
 
-    public String getDataFechamento() {
+    public Date getDataFechamento() {
         return dataFechamento;
     }
 
-    public void setDataFechamento(String dataFechamento) {
+    public void setDataFechamento(Date dataFechamento) {
         this.dataFechamento = dataFechamento;
     }
 

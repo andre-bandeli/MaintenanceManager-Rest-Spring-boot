@@ -9371,6 +9371,7 @@ fieldset:disabled .wizard > .actions a,
   color: #fff;
   background-color: transparent;
   border-color: #00d25b; }
+
   .btn-success:hover {
     color: #fff;
     background-color: #00ac4a;
@@ -9449,6 +9450,11 @@ fieldset:disabled .wizard > .actions a,
   color: #fff;
   background-color: transparent;
   border-color: rgba(255, 0, 0, 0.91); }
+.btn-danger-r {
+  color: #fff;
+  background-color: transparent;
+  border-color: rgba(255, 0, 0, 0.91);
+display: flex}
   .btn-danger:hover {
     color: #fff;
     background-color: #fb1c26;

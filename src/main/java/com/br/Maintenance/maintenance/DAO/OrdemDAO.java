@@ -20,8 +20,8 @@ public class OrdemDAO {
             pst = connection.prepareStatement("INSERT INTO ordem_servico (id, codigo, dataAbertura, dataFechamento, solicitacaoServico)VALUES( ?, ?, ?, ?, ?)");
             pst.setLong(1, ordem.getId());
             pst.setLong(2, ordem.getCodigo());
-            pst.setString(3, ordem.getDataAbertura());
-            pst.setString(4, ordem.getDataFechamento());
+            pst.setDate(3, ordem.getDataAbertura());
+            pst.setDate(4, ordem.getDataFechamento());
             pst.setString(5, ordem.getSolicitacaoServico().toString());
 
             pst.executeUpdate();
