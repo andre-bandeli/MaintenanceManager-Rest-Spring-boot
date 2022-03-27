@@ -20,13 +20,16 @@ public class AtivoService {
         return ativosRepository.save(ativos);
     }
 
-    public Ativos salvarAtivos(Ativos  ativos) {
+    public Ativos salvarAtivos() {
+
+        Ativos ativos = new Ativos();
         ativos.setId(ativos.getId());
         ativos.setCodigo(ativos.getCodigo());
         ativos.setSetor(ativos.getSetor());
         ativos.setDataInicioOperacao(ativos.getDataInicioOperacao());
         ativos.setTipo(ativos.getTipo());
         ativos.setNivelPrioridade(ativos.getNivelPrioridade());
+
         return ativosRepository.save(ativos);
     }
 
@@ -46,5 +49,13 @@ public class AtivoService {
     public Ativos updateAtivo(Ativos ativos) {
         Ativos ativos1 = ativosRepository.findById(ativos.getId()).orElse(null);
         return ativosRepository.save(ativos1);
+    }
+
+    public List<Ativos> ativosHome() {
+
+        Ativos ativos = new Ativos();
+        List<Ativos> list = ativosRepository.findAll();
+
+        return list;
     }
 }
