@@ -12,6 +12,7 @@ public class OrdemDAO {
 
 
     public void criarOrdem(Ordem ordem) {
+
         Connection connection = Factory.getConnection();
         PreparedStatement pst = null;
 
@@ -22,7 +23,7 @@ public class OrdemDAO {
             pst.setLong(2, ordem.getCodigo());
             pst.setDate(3, ordem.getDataAbertura());
             pst.setDate(4, ordem.getDataFechamento());
-            pst.setString(5, ordem.getSolicitacaoServico().toString());
+            pst.setString(5, ordem.getSolicitacaoServico());
 
             pst.executeUpdate();
             System.out.println("objeto salvo com sucesso! ");

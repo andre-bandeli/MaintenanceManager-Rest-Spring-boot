@@ -361,19 +361,19 @@
                       </div>
                       <div class="form-group">
                         <label>Nome</label>
-                        <input type="text"  th:field="*{nome}" class="form-control" id="maquina" placeholder="Maquina">
+                        <input type="text"  th:field="*{nome}" class="form-control" id="maquina" placeholder="Nome produto">
                       </div >
                       <div class="form-group">
                         <label>Saldo</label>
-                        <input type="text"  th:field="*{saldo}" class="form-control" id="setor" placeholder="Setor">
+                        <input type="text"  th:field="*{saldo}" class="form-control" id="setor" placeholder="saldo atual">
                       </div>
                       <div class="form-group">
                         <label>Saldo min</label>
-                        <input type="text" th:field="*{saldoMin}" class="form-control" id="nome_solicitante" placeholder="Nome solicitante">
+                        <input type="text" th:field="*{saldoMin}" class="form-control" id="nome_solicitante" placeholder="Saldo minimo">
                       </div>
 
                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                      <a href="/"><button class="btn btn-dark">Cancel</button></a>
+                      <a href="/api/produto"><button class="btn btn-dark">Cancel</button></a>
                     </form>
                   </div>
                 </div>

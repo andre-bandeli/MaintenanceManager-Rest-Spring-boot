@@ -386,10 +386,10 @@
                       <div class="btns">
                         <td><button type="button" class="btn btn-primary btn-icon-text">
                           <i class="mdi mdi-file-check btn-icon-prepend"></i> voltar </button></td>
-                        <td><button type="button" class="btn btn-success btn-icon-text">
-                          <i class="mdi mdi-alert btn-icon-prepend"></i> editar </button></td>
-                        <td><button type="button" class="btn btn-danger btn-icon-text">
-                          <i class="mdi mdi-upload btn-icon-prepend"></i> remover </button> </td>
+                        <td><a th:href="@{/api/listaCompras/update/{id}(id=${listaCompras.id})}"><button type="button" class="btn btn-success btn-icon-text">
+                          <i class="mdi mdi-alert btn-icon-prepend"></i> editar </button></a></td>
+                        <td><a th:href="@{/api/listaCompras/remove/{id}(id=${listaCompras.id})}"><button type="button" class="btn btn-danger btn-icon-text">
+                          <i class="mdi mdi-upload btn-icon-prepend"></i> remover </button></a> </td>
                       </div>
                     </div>
 

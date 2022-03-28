@@ -366,8 +366,6 @@
                             <th>Setor</th>
                             <th>Inicio Operação</th>
                             <th>Nível Prioridade</th>
-                            <th>Nova Entrada</th>
-                            <th>Nova saida</th>
                             <th class="tab"> Visualizar </th>
                             <th class="tab"> Atualizar </th>
                             <th class="tab"> Remover </th>
@@ -380,8 +378,6 @@
                             <td th:text="${ativos.setor}"></td>
                             <td th:text="${ativos.dataInicioOperacao}"></td>
                             <td th:text="${ativos.nivelPrioridade}"></td>
-                            <td><label class="badge badge-success">Entrada</label></td>
-                            <td><label class="badge badge-warning">Saida</label></td>
                             <td><a th:href="@{/api/ativo/view/{id}(id=${ativos.id})}"><button type="button" class="btn btn-primary btn-icon-text">
                               <i class="mdi mdi-file-check btn-icon-prepend"></i> view </button></a></td>
                             <td><a th:href="@{/api/ativo/update/{id}(id=${ativos.id})}"><button type="button" class="btn btn-success btn-icon-text">
