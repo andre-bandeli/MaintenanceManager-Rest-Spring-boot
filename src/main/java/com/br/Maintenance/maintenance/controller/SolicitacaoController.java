@@ -3,9 +3,8 @@ package com.br.Maintenance.maintenance.controller;
 import com.br.Maintenance.maintenance.model.Ordem;
 import com.br.Maintenance.maintenance.service.OrdemService;
 import com.br.Maintenance.maintenance.model.Solicitacao;
-import com.br.Maintenance.maintenance.service.serviceSolicitacao;
+import com.br.Maintenance.maintenance.service.SolicitacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +16,7 @@ import java.util.List;
 public class SolicitacaoController {
 
     @Autowired
-    private serviceSolicitacao solicitacaoService;
+    private SolicitacaoService solicitacaoService;
 
     @Autowired
     private OrdemService ordemService;

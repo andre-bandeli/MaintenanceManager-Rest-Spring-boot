@@ -5,15 +5,12 @@ import com.br.Maintenance.maintenance.DAO.SolicitacaoDAO;
 import com.br.Maintenance.maintenance.model.Solicitacao;
 import com.br.Maintenance.maintenance.repository.SolicitacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class serviceSolicitacao {
+public class SolicitacaoService {
 
     private SolicitacaoDAO solicitacaoDAO;
 
