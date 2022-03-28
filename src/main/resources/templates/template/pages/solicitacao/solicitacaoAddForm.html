@@ -8,14 +8,8 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
     <link rel="stylesheet" href="/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="/images/favicon.png" />
@@ -90,7 +84,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/solicitacao">
+            <a class="nav-link" href="/api/solicitacao">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
@@ -98,7 +92,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="/ordem" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="/api/ordem" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
@@ -107,7 +101,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/produto">
+            <a class="nav-link" href="/api/produto">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -115,7 +109,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/ativo">
+            <a class="nav-link" href="/api/ativo">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
@@ -358,7 +352,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Criar nova Solicitação de Serviço</h4>
                     <p class="card-description"> Basic form layout </p>
-                    <form class="forms-sample" action="#" th:action="@{/solicitacao/saveSolicitacao}" th:object="${solicitacao}" method="POST">
+                    <form class="forms-sample" action="#" th:action="@{/api/solicitacao/saveSolicitacao}" th:object="${solicitacao}" method="POST">
                       <div class="form-group">
                         <label>Código</label>
                         <input type="text" th:field="*{codigo}" class="form-control" placeholder="Codigo" >
@@ -376,16 +370,21 @@
                         <input type="text" th:field="*{nomeSolicitante}" class="form-control" id="nome_solicitante" placeholder="Nome solicitante">
                       </div>
                       <div class="form-group">
+                        <label>Data Solicitação</label>
+                        <input type="date"  th:field="*{dataSolicitacao}" class="form-control" id="dataSolicitacao" placeholder="yyy-MM-dd" pattern="yyy-MM-dd">
+                      </div>
+                      <div class="form-group">
                         <label>Descrição</label>
-                        <input  type="text" th:field="*{descricao}" class="form-control" id="desscricao" placeholder="Descrição">
+                        <input  type="text" th:field="*{descricao}" class="form-control" id="descricao" placeholder="Descrição">
+                      </div>
+                      <div class="form-group">
+                        <label>Status</label>
+                        <input  type="text" th:field="*{active}" class="form-control" id="status" placeholder="status">
                       </div>
 
-<!--                      <div class="form-check form-check-flat form-check-primary">-->
-<!--                        <label class="form-check-label">-->
-<!--                          <input type="checkbox" class="form-check-input">Ativo </label>-->
-<!--                      </div>-->
+
                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                      <a href="/"><button class="btn btn-dark">Cancel</button></a>
+                      <a href="/api/solicitacao"><button class="btn btn-dark">Cancel</button></a>
                     </form>
                   </div>
                 </div>
@@ -405,7 +404,10 @@
                         <th class="tdMaq"> Máquina </th>
                         <th class="tdSet" > Setor </th>
                         <th class="tdNom"> Nome Solicitante </th>
+                        <th class="tdDes"> Data Solicitação </th>
                         <th class="tdDes"> Descricao </th>
+                        <th class="tdDes"> Status </th>
+
                       </tr>
                       </thead>
                       <tbody>
@@ -416,7 +418,9 @@
                           <td class="tdId" th:text="${sol.maquina}"></td>
                           <td class="tdId" th:text="${sol.setor}"></td>
                           <td class="tdId" th:text="${sol.nomeSolicitante}"></td>
+                          <td class="tdId" th:text="${sol.dataSolicitacao}"></td>
                           <td class="tdId" th:text="${sol.descricao}"></td>
+                          <td class="tdId" th:text="${sol.active}"></td>
                         </tr>
                       </tbody>
                     </table>
@@ -429,19 +433,13 @@
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
     <script src="/vendors/select2/select2.min.js"></script>
     <script src="/vendors/typeahead.js/typeahead.bundle.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
     <script src="/js/off-canvas.js"></script>
     <script src="/js/hoverable-collapse.js"></script>
     <script src="/js/misc.js"></script>
     <script src="/js/settings.js"></script>
     <script src="/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
     <script src="/js/file-upload.js"></script>
     <script src="/js/typeahead.js"></script>
     <script src="/js/select2.js"></script>

@@ -1,6 +1,7 @@
 package com.br.Maintenance.maintenance.service;
 
 import com.br.Maintenance.maintenance.model.ListaCompras;
+import com.br.Maintenance.maintenance.model.Ordem;
 import com.br.Maintenance.maintenance.model.Produto;
 import com.br.Maintenance.maintenance.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,17 @@ public class ProdutoService {
     public String remove(Long id) {
         repository.deleteById(id);
         return "Produto removido!!" + id;
+    }
+
+    public Produto updateProduto(Long id) {
+
+        Produto produto = repository.getById(id);
+        produto.setCodigo(produto.getCodigo());
+        produto.setNome(produto.getNome());
+        produto.setSaldo(produto.getSaldo());
+        produto.setSaldoMin(produto.getSaldoMin());
+
+        return repository.save(produto);
     }
 
     public Produto entrada(Long id, int valor) {

@@ -41,9 +41,15 @@ public class OrdemService {
         return "Ordem removida!!" + id;
     }
 
-    public Ordem updateOrdem(Ordem ordemServico) {
-        Ordem ordemServico1 = ordemRepository.findById(ordemServico.getId()).orElse(null);
-        return ordemRepository.save(ordemServico);
+    public Ordem updateOrdem(Long id) {
+
+        Ordem ordem = ordemRepository.getById(id);
+        ordem.setCodigo(ordem.getCodigo());
+        ordem.setDataAbertura(ordem.getDataAbertura());
+        ordem.setDataFechamento(ordem.getDataFechamento());
+        ordem.setSolicitacaoServico(ordem.getSolicitacaoServico());
+
+        return ordemRepository.save(ordem);
     }
 
     public void setStatus(Solicitacao solicitacao) {

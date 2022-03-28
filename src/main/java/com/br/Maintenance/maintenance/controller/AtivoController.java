@@ -2,6 +2,7 @@ package com.br.Maintenance.maintenance.controller;
 
 
 import com.br.Maintenance.maintenance.model.Ativos;
+import com.br.Maintenance.maintenance.model.Produto;
 import com.br.Maintenance.maintenance.service.AtivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,7 +45,7 @@ public class AtivoController {
 
         ativoService.saveAtivo(ativos);
         model.addAttribute("ativos", ativos);
-        return "redirect:/ativo";
+        return "redirect:/api/ativo";
     }
 
     // Visualizar Ativos por Id
@@ -56,24 +57,14 @@ public class AtivoController {
         return "template/pages/ativos/ativosDescricao";
     }
 
-    // Atualizar um Ativo
-    @GetMapping("/update/{id}")
-    public String updateAtivos(@PathVariable("id") Long id, Model model) {
+    @PutMapping("/update/{id}")
+    public String updateAtivo(@PathVariable("id") Long id, Model model) {
 
-        Ativos ativos = ativoService.getAtivoById(id);
+        Ativos ativos = new Ativos();
+        ativoService.updateAtivo(id);
+
         model.addAttribute("ativos", ativos);
-
-        return "template/pages/ativos/ativosUpdateForm";
-    }
-
-    // Salvar a Atualização
-    @PostMapping("/saveUpdate")
-    public String saveUpdate(Model model) {
-
-        Ativos ativos=  ativoService.salvarAtivos();
-        model.addAttribute("ativos", ativos);
-
-        return "redirect:/ativo";
+        return  "template/pages/estoque/ativosUpdateForm";
     }
 
     // Remover Ativo por Id

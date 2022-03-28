@@ -1,7 +1,7 @@
 package com.br.Maintenance.maintenance.model;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 
 @Entity
@@ -12,26 +12,21 @@ public class Solicitacao {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "codigo")
     private int codigo;
 
-    @Column(name = "maquina")
     private String maquina;
 
-    @Column(name = "setor")
     private String setor;
 
     @Column(name = "nome_solicitante")
     private String nomeSolicitante;
 
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @Column(name = "data_solicitacao")
-//    private java.sql.Date dataSolicitacao;
+    @Column(name = "data_solicitacao")
+    private Date dataSolicitacao;
 
     @Column(name = "is_ordem")
     private Boolean isOrdemServico = false;
 
-    @Column(name = "descricao")
     private String descricao;
 
     public Solicitacao() {
@@ -77,13 +72,13 @@ public class Solicitacao {
         this.nomeSolicitante = nomeSolicitante;
     }
 
-//    public java.sql.Date getDataSolicitacao() {
-//        return dataSolicitacao;
-//    }
-//
-//    public void setDataSolicitacao(java.sql.Date dataSolicitacao) {
-//        this.dataSolicitacao = dataSolicitacao;
-//    }
+    public Date getDataSolicitacao() {
+        return dataSolicitacao;
+    }
+
+    public void setDataSolicitacao(Date dataSolicitacao) {
+        this.dataSolicitacao = dataSolicitacao;
+    }
 
     public Boolean getActive() {
         return isOrdemServico;

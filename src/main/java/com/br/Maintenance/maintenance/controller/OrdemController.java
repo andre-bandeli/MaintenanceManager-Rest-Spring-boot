@@ -1,6 +1,7 @@
 package com.br.Maintenance.maintenance.controller;
 
 import com.br.Maintenance.maintenance.model.Ordem;
+import com.br.Maintenance.maintenance.model.Solicitacao;
 import com.br.Maintenance.maintenance.service.OrdemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,7 +42,7 @@ public class OrdemController {
         ordemService.saveOrdem(ordem);
         model.addAttribute("ordem", ordem);
 
-        return "/template/index";
+        return "redirect:/api/ordem";
     }
 
     @GetMapping("/view/{id}")
@@ -53,31 +54,14 @@ public class OrdemController {
         return "template/pages/solicitacao/ordemDescricao";
     }
 
-    @GetMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public String updateOrdem(@PathVariable("id") Long id, Model model) {
 
-        Ordem ordem = ordemService.getOrdemById(id);
+        Ordem ordem = new Ordem();
+        ordemService.updateOrdem(id);
+
         model.addAttribute("ordem", ordem);
-
-        return "template/pages/solicitacao/ordemUpdateForm";
-    }
-    @PostMapping("/saveUpdate")
-    public String saveUpdate(@ModelAttribute Ordem ordem, Model model) {
-
-        ordemService.saveOrdem(ordem);
-        model.addAttribute("ordem", ordem);
-
-        return "redirect:/ordem";
-    }
-
-    @PostMapping("/addList")
-    public List<Ordem> addListOrdem(List<Ordem> ordemServico) {
-        return ordemService.salvarOrdem(ordemServico);
-    }
-
-    @GetMapping("/{id}")
-    public Ordem getOrdemById(@PathVariable Long id) {
-        return ordemService.getOrdemById(id);
+        return  "template/pages/solicitacao/ordemUpdateForm";
     }
 
     @GetMapping("/remove/{id}")
@@ -85,5 +69,6 @@ public class OrdemController {
         ordemService.deleteOrdemById(id);
         return "redirect:/solicitacao";
     }
+
 
 }

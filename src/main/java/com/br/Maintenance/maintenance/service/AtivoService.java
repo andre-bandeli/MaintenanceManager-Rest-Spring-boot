@@ -2,6 +2,7 @@ package com.br.Maintenance.maintenance.service;
 
 
 import com.br.Maintenance.maintenance.model.Ativos;
+import com.br.Maintenance.maintenance.model.Ordem;
 import com.br.Maintenance.maintenance.repository.AtivosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,9 +47,16 @@ public class AtivoService {
         return "Solicitação removida!!" + id;
     }
 
-    public Ativos updateAtivo(Ativos ativos) {
-        Ativos ativos1 = ativosRepository.findById(ativos.getId()).orElse(null);
-        return ativosRepository.save(ativos1);
+    public Ativos updateAtivo(Long id) {
+
+        Ativos ativos = ativosRepository.getById(id);
+        ativos.setCodigo(ativos.getCodigo());
+        ativos.setSetor(ativos.getSetor());
+        ativos.setTipo(ativos.getTipo());
+        ativos.setDataInicioOperacao(ativos.getDataInicioOperacao());
+        ativos.setNivelPrioridade(ativos.getNivelPrioridade());
+
+        return ativosRepository.save(ativos);
     }
 
     public List<Ativos> ativosHome() {

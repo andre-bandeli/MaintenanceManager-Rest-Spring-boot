@@ -8,14 +8,8 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
     <link rel="stylesheet" href="/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="/images/favicon.png" />
@@ -90,7 +84,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/solicitacao">
+            <a class="nav-link" href="/api/solicitacao">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
@@ -98,7 +92,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="/ordem" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="/api/ordem" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
@@ -107,7 +101,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/produto">
+            <a class="nav-link" href="/api/produto">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -115,7 +109,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/ativo">
+            <a class="nav-link" href="/api/ativo">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
@@ -406,41 +400,14 @@
                     </div>
                     <div class="card-desc">
                       <div class="btns">
-                        <td><button type="button" class="btn btn-primary btn-icon-text">
-                          <i class="mdi mdi-file-check btn-icon-prepend"></i> voltar </button></td>
-                        <td><button type="button" class="btn btn-success btn-icon-text">
-                          <i class="mdi mdi-alert btn-icon-prepend"></i> editar </button></td>
-                        <td><button type="button" class="btn btn-danger btn-icon-text">
-                          <i class="mdi mdi-upload btn-icon-prepend"></i> remover </button> </td>
+                        <td><a href="/api/solicitacao"><button type="button" class="btn btn-primary btn-icon-text">
+                          <i class="mdi mdi-file-check btn-icon-prepend"></i> voltar </button></a></td>
+                        <td><a th:href="@{/api/solicitacao/update/{id}(id=${solicitacao.id})}"><button type="button" class="btn btn-success btn-icon-text">
+                          <i class="mdi mdi-alert btn-icon-prepend"></i> editar </button></a></td>
+                        <td><a th:href="@{/api/solicitacao/remove/{id}(id=${solicitacao.id})}"><button type="button" class="btn btn-danger btn-icon-text">
+                          <i class="mdi mdi-upload btn-icon-prepend"></i> remover </button></a></td>
                       </div>
                     </div>
-
-<!--                    <table>-->
-<!--                      <thead>-->
-
-<!--                      <tr>-->
-<!--                        <th class="tab"> Código </th>-->
-<!--                        <th class="tab"> Máquina </th>-->
-<!--                        <th class="tab" > Setor </th>-->
-<!--                        <th class="tab"> Nome Solicitante </th>-->
-<!--                        <th class="tab"> Descricao </th>-->
-<!--                        <th class="tab"> Status </th>-->
-<!--                      </tr>-->
-<!--                      </thead>-->
-<!--                      <tbody>-->
-
-<!--                      <tr th:each="solicitacao : ${solicitacao}">-->
-<!--                        <td class="tab" th:text="${solicitacao.codigo}"></td>-->
-<!--                        <td class="tab" th:text="${solicitacao.maquina}"></td>-->
-<!--                        <td class="tab" th:text="${solicitacao.setor}"></td>-->
-<!--                        <td class="tab" th:text="${solicitacao.nomeSolicitante}"></td>-->
-<!--                        <td class="tab" th:text="${solicitacao.descricao}"></td>-->
-<!--                        <td class="tab" th:text="${solicitacao.active}"></td>-->
-
-<!--                      </tr>-->
-<!--                      </tbody>-->
-<!--                    </table>-->
-
 
 
                   </div>
@@ -469,23 +436,19 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="../../../static/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="../../../static/vendors/select2/select2.min.js"></script>
-    <script src="../../../static/vendors/typeahead.js/typeahead.bundle.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="../../../../static/js/off-canvas.js"></script>
-    <script src="../../../../static/js/hoverable-collapse.js"></script>
-    <script src="../../../../static/js/misc.js"></script>
-    <script src="../../../../static/js/settings.js"></script>
-    <script src="../../../../static/js/todolist.js"></script>
+    <script src="/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/vendors/select2/select2.min.js"></script>
+    <script src="/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <script src="/js/off-canvas.js"></script>
+    <script src="/js/hoverable-collapse.js"></script>
+    <script src="/js/misc.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/todolist.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="../../../../static/js/file-upload.js"></script>
-    <script src="../../../../static/js/typeahead.js"></script>
-    <script src="../../../../static/js/select2.js"></script>
+    <script src="/js/file-upload.js"></script>
+    <script src="/js/typeahead.js"></script>
+    <script src="/js/select2.js"></script>
     <!-- End custom js for this page -->
   </body>
 </html>

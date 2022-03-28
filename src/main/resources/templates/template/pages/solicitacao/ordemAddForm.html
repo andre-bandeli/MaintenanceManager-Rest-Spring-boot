@@ -12,10 +12,6 @@
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="/images/favicon.png" />
@@ -90,7 +86,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/solicitacao">
+            <a class="nav-link" href="/api/solicitacao">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
@@ -98,7 +94,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="/ordem" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="/api/ordem" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
@@ -107,7 +103,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/produto">
+            <a class="nav-link" href="/api/produto">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -115,7 +111,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/ativo">
+            <a class="nav-link" href="/api/ativo">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
@@ -358,7 +354,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Criar nova Ordem de Serviço</h4>
                     <p class="card-description"> Basic form layout </p>
-                    <form class="forms-sample" action="#" th:action="@{/ordem/saveOrdem}" th:object="${ordem}" method="POST">
+                    <form class="forms-sample" action="#" th:action="@{/api/ordem/saveOrdem}" th:object="${ordem}" method="POST">
                       <div class="form-group">
                         <label>Código</label>
                         <input type="text" th:field="*{codigo}" class="form-control" placeholder="Codigo" >
@@ -381,7 +377,7 @@
 <!--                          <input type="checkbox" class="form-check-input">Ativo </label>-->
 <!--                      </div>-->
                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                      <a href="/ordem/"><button class="btn btn-dark">Cancel</button></a>
+                      <a href="/api/ordem/"><button class="btn btn-dark">Cancel</button></a>
                     </form>
                   </div>
                 </div>
@@ -423,19 +419,15 @@
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
+
     <script src="/vendors/select2/select2.min.js"></script>
     <script src="/vendors/typeahead.js/typeahead.bundle.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
+
     <script src="/js/off-canvas.js"></script>
     <script src="/js/hoverable-collapse.js"></script>
     <script src="/js/misc.js"></script>
     <script src="/js/settings.js"></script>
     <script src="/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
     <script src="/js/file-upload.js"></script>
     <script src="/js/typeahead.js"></script>
     <script src="/js/select2.js"></script>

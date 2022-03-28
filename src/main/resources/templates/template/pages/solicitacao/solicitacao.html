@@ -5,17 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Solicitacao</title>
-    <!-- plugins:css -->
+
     <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
+
     <link rel="stylesheet" href="/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
+
     <link rel="stylesheet" href="/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="/images/favicon.png" />
@@ -90,7 +86,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/solicitacoes">
+            <a class="nav-link" href="/api/solicitacao">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
@@ -98,7 +94,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="/ordem" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="/api/ordem" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
@@ -107,7 +103,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/produto">
+            <a class="nav-link" href="/api/produto">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -115,7 +111,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/ativo">
+            <a class="nav-link" href="/api/ativo">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
@@ -359,7 +355,7 @@
                     <h4 class="card-title">Criar nova Solicitação de Serviço</h4>
                     <p class="card-description"> Inicie um novo chamado! </p>
 
-                    <a href="/solicitacao/addSolicitacao"> <button class="btn btn-primary mr-2">Nova Solicitação</button></a>
+                    <a href="/api/solicitacao/addSolicitacao"> <button class="btn btn-primary mr-2">Nova Solicitação</button></a>
                       <button class="btn btn-dark">Cancel</button>
 
                   </div>
@@ -368,7 +364,7 @@
                     <h4 class="card-title">Criar nova Ordem de Serviço</h4>
                     <p class="card-description"> Inicie uma nova ordem a partir de uma solicitação existente!</p>
 
-                    <a href="/ordem/add"><button type="submit" class="btn btn-primary mr-2">Nova Ordem</button></a>
+                    <a href="/api/ordem/add"><button type="submit" class="btn btn-primary mr-2">Nova Ordem</button></a>
                     <button class="btn btn-dark">Cancel</button>
 
                   </div>
@@ -376,8 +372,8 @@
                   <div class="card-body">
                     <h4 class="card-title">Listar Solicitações | Ordens de Serviço</h4>
 
-                    <a href="/solicitacao/list"> <button type="submit" class="btn btn-primary mr-2">Solicitações</button></a>
-                    <a href="/ordem"> <button type="submit" class="btn btn-primary mr-2">Ordens</button></a>
+                    <a href="/api/solicitacao/list"> <button type="submit" class="btn btn-primary mr-2">Solicitações</button></a>
+                    <a href="/api/ordem"> <button type="submit" class="btn btn-primary mr-2">Ordens</button></a>
 
                   </div>
                 </div>
@@ -449,11 +445,11 @@
                           <td class="tab" th:text="${sol.nomeSolicitante}"></td>
                           <td class="tab" th:text="${sol.descricao}"></td>
                           <td class="tab" th:text="${sol.active}"></td>
-                          <td><a th:href="@{/solicitacao/view/{id}(id=${sol.id})}"><button type="button" class="btn btn-primary btn-icon-text">
+                          <td><a th:href="@{/api/solicitacao/view/{id}(id=${sol.id})}"><button type="button" class="btn btn-primary btn-icon-text">
                             <i class="mdi mdi-file-check btn-icon-prepend"></i> view </button></a></td>
-                          <td><a th:href="@{/solicitacao/update/{id}(id=${sol.id})}"><button type="button" class="btn btn-success btn-icon-text">
+                          <td><a th:href="@{/api/solicitacao/update/{id}(id=${sol.id})}"><button type="button" class="btn btn-success btn-icon-text">
                             <i class="mdi mdi-alert btn-icon-prepend"></i> upload </button></a></td>
-                          <td> <a  th:href="@{/solicitacao/remove/{id}(id=${sol.id})}"><button type="button" class="btn btn-danger btn-icon-text">
+                          <td> <a  th:href="@{/api/solicitacao/remove/{id}(id=${sol.id})}"><button type="button" class="btn btn-danger btn-icon-text">
                             <i class="mdi mdi-upload btn-icon-prepend"></i> remove </button></a>  </td>
                         </tr>
                       </tbody>
@@ -491,11 +487,11 @@
                         <td class="tab" th:text="${ordens.dataFechamento}"></td>
                         <td class="tab" th:text="${ordens.solicitacaoServico}"></td>
                         <td class="tab" >em processamento</td>
-                        <td><a th:href="@{/ordem/view/{id}(id=${ordens.id})}"><button type="button" class="btn btn-primary btn-icon-text">
+                        <td><a th:href="@{/api/ordem/view/{id}(id=${ordens.id})}"><button type="button" class="btn btn-primary btn-icon-text">
                           <i class="mdi mdi-file-check btn-icon-prepend"></i> view </button></a></td>
-                        <td><a th:href="@{/ordem/update/{id}(id=${ordens.id})}"><button type="button" class="btn btn-success btn-icon-text">
+                        <td><a th:href="@{/api/ordem/update/{id}(id=${ordens.id})}"><button type="button" class="btn btn-success btn-icon-text">
                           <i class="mdi mdi-alert btn-icon-prepend"></i> upload </button></a></td>
-                        <td><a th:href="@{/ordem/remove/{id}(id=${ordens.id})}"><button type="button" class="btn btn-danger btn-icon-text">
+                        <td><a th:href="@{/api/ordem/remove/{id}(id=${ordens.id})}"><button type="button" class="btn btn-danger btn-icon-text">
                           <i class="mdi mdi-upload btn-icon-prepend"></i> remove </button> </a> </td>
                       </tr>
                       </tbody>
@@ -522,23 +518,17 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="../../../static/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="../../../static/vendors/select2/select2.min.js"></script>
-    <script src="../../../static/vendors/typeahead.js/typeahead.bundle.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="../../../../static/js/off-canvas.js"></script>
-    <script src="../../../../static/js/hoverable-collapse.js"></script>
-    <script src="../../../../static/js/misc.js"></script>
-    <script src="../../../../static/js/settings.js"></script>
-    <script src="../../../../static/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="../../../../static/js/file-upload.js"></script>
-    <script src="../../../../static/js/typeahead.js"></script>
-    <script src="../../../../static/js/select2.js"></script>
+    <script src="/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/vendors/select2/select2.min.js"></script>
+    <script src="/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <script src="/js/off-canvas.js"></script>
+    <script src="/js/hoverable-collapse.js"></script>
+    <script src="/js/misc.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/todolist.js"></script>
+    <script src="/js/file-upload.js"></script>
+    <script src="/js/typeahead.js"></script>
+    <script src="/js/select2.js"></script>
     <!-- End custom js for this page -->
   </body>
 </html>

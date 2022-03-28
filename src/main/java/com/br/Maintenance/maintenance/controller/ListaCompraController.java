@@ -1,6 +1,7 @@
 package com.br.Maintenance.maintenance.controller;
 
 import com.br.Maintenance.maintenance.model.ListaCompras;
+import com.br.Maintenance.maintenance.model.Ordem;
 import com.br.Maintenance.maintenance.service.ListaCompraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,7 @@ public class ListaCompraController {
         service.saveListaCompras(listaCompras);
         model.addAttribute("listaCompras", listaCompras);
 
-        return "/template/index";
+        return "redirect:/api/produto";
     }
 
     @GetMapping("/remove/{id}")
@@ -50,20 +51,14 @@ public class ListaCompraController {
         return "template/pages/estoque/listaCompraDescricao";
     }
 
-    @GetMapping("/update/{id}")
-    public String updateListaCompras(@PathVariable("id") Long id, Model model) {
+    @PutMapping("/update/{id}")
+    public String updateListaCompra(@PathVariable("id") Long id, Model model) {
 
-        ListaCompras listaCompras = service.listaComprasPorId(id);
+        ListaCompras listaCompras = new ListaCompras();
+        service.updateListaCompra(id);
+
         model.addAttribute("listaCompras", listaCompras);
-
-        return "template/pages/estoque/listaCompraUpdateForm";
-    }
-    @PostMapping("/saveUpdate")
-    public String saveUpdate(@ModelAttribute ListaCompras listaCompras, Model model) {
-
-        service.saveListaCompras(listaCompras);
-        model.addAttribute("listaCompras", listaCompras);
-        return "redirect:/produto";
+        return  "template/pages/solicitacao/listaComprasUpdateForm";
     }
 
 }

@@ -1,6 +1,7 @@
 package com.br.Maintenance.maintenance.service;
 
 import com.br.Maintenance.maintenance.model.ListaCompras;
+import com.br.Maintenance.maintenance.model.Ordem;
 import com.br.Maintenance.maintenance.repository.ListaCompraRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,16 @@ public class ListaCompraService {
         ListaCompras listaCompras = new ListaCompras();
         List<ListaCompras> lista = repository.findAll();
         return lista;
+    }
+
+    public ListaCompras updateListaCompra(Long id) {
+
+        ListaCompras listaCompras = repository.getById(id);
+        listaCompras.setCodigo(listaCompras.getCodigo());
+        listaCompras.setNome(listaCompras.getNome());
+        listaCompras.setDeadline(listaCompras.getDeadline());
+
+        return repository.save(listaCompras);
     }
 
 }

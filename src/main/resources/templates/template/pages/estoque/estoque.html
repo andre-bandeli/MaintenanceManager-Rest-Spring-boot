@@ -8,12 +8,6 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="/images/favicon.png" />
@@ -88,7 +82,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/solicitacao">
+            <a class="nav-link" href="/api/solicitacao">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
@@ -96,7 +90,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="/ordem" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="/api/ordem" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
@@ -105,7 +99,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/produto">
+            <a class="nav-link" href="/api/produto">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -113,7 +107,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/ativo">
+            <a class="nav-link" href="/api/ativo">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
@@ -358,7 +352,7 @@
                     <p class="card-description"> Add class <code>.table</code>
                     </p>
                     <p></p>
-                    <a href="/produto/add"> <button type="button" class="btn btn-success btn-rounded btn-fw">Cadastrar Produto</button></a>
+                    <a href="/api/produto/add"> <button type="button" class="btn btn-success btn-rounded btn-fw">Cadastrar Produto</button></a>
                     <p></p>
                     <div class="table-responsive">
                       <table class="table">
@@ -384,8 +378,8 @@
                             <td th:text="${produto.saldoMin}"></td>
                             <td><label class="badge badge-success">Entrada</label></td>
                             <td><label class="badge badge-warning">Saida</label></td>
-                            <td><a th:href="@{/produto/view/{id}(id=${produto.id})}"><button type="button" class="btn btn-success btn-icon-text">Detalhes</button></a></td>
-                            <td><a th:href="@{/produto/remove/{id}(id=${produto.id})}"><button type="button" class="btn btn-danger btn-icon-text">
+                            <td><a th:href="@{/api/produto/view/{id}(id=${produto.id})}"><button type="button" class="btn btn-success btn-icon-text">Detalhes</button></a></td>
+                            <td><a th:href="@{/api/produto/remove/{id}(id=${produto.id})}"><button type="button" class="btn btn-danger btn-icon-text">
                               <i class="mdi mdi-upload btn-icon-prepend"></i> remove </button> </a> </td>
                           </tr>
 
@@ -404,7 +398,7 @@
                     <p class="card-description"> Add class <code>.table-dark</code>
                     </p>
                     <p></p>
-                    <a href="/listaCompra/add"> <button type="button" class="btn btn-success btn-rounded btn-fw">Novo pedido</button></a>
+                    <a href="/api/listaCompra/add"> <button type="button" class="btn btn-success btn-rounded btn-fw">Novo pedido</button></a>
                     <p></p>
                     <div class="table-responsive">
                       <table class="table table-dark">
@@ -424,10 +418,10 @@
                             <td th:text="${list.nome}"></td>
                             <td th:text="${list.codigo}"></td>
                             <td th:text="${list.deadline}"></td>
-                            <td><a th:href="@{/listaCompra/view/{id}(id=${list.id})}"><button type="button" class="btn btn-success btn-icon-text">Detalhes</button></a></td>
-                            <td><a th:href="@{/listaCompra/update/{id}(id=${list.id})}"><button type="button" class="btn btn-success btn-icon-text">
+                            <td><a th:href="@{/api/listaCompra/view/{id}(id=${list.id})}"><button type="button" class="btn btn-success btn-icon-text">Detalhes</button></a></td>
+                            <td><a th:href="@{/api/listaCompra/update/{id}(id=${list.id})}"><button type="button" class="btn btn-success btn-icon-text">
                               <i class="mdi mdi-alert btn-icon-prepend"></i> upload </button></a></td>
-                            <td><a th:href="@{/listaCompra/remove/{id}(id=${list.id})}"><button type="button" class="btn btn-danger btn-icon-text">
+                            <td><a th:href="@{/api/listaCompra/remove/{id}(id=${list.id})}"><button type="button" class="btn btn-danger btn-icon-text">
                               <i class="mdi mdi-upload btn-icon-prepend"></i> remove </button> </a> </td>
                           </tr>
 
@@ -441,34 +435,26 @@
 
             </div>
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:../../partials/_footer.html -->
+
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
               <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
             </div>
           </footer>
-          <!-- partial -->
+
         </div>
-        <!-- main-panel ends -->
+
       </div>
-      <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="../../../../static/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
+
+    <script src="/vendors/js/vendor.bundle.base.js"></script>
+
     <script src="/js/off-canvas.js"></script>
     <script src="/js/hoverable-collapse.js"></script>
     <script src="/js/misc.js"></script>
     <script src="/js/settings.js"></script>
     <script src="/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <!-- End custom js for this page -->
+
   </body>
 </html>

@@ -2,6 +2,7 @@ package com.br.Maintenance.maintenance.controller;
 
 
 import com.br.Maintenance.maintenance.model.ListaCompras;
+import com.br.Maintenance.maintenance.model.Ordem;
 import com.br.Maintenance.maintenance.model.Produto;
 import com.br.Maintenance.maintenance.service.ListaCompraService;
 import com.br.Maintenance.maintenance.service.ProdutoService;
@@ -52,14 +53,7 @@ public class ProdutoController {
         service.saveProduto(produto);
         model.addAttribute("produto", produto);
 
-        return "/template/index";
-    }
-
-    @GetMapping("/remove/{id}")
-    public String  removeProduto(@PathVariable Long id) {
-
-        service.remove(id);
-        return "/template/index";
+        return "redirect:/api/produto";
     }
 
     @GetMapping("/view/{id}")
@@ -71,9 +65,21 @@ public class ProdutoController {
         return "template/pages/estoque/produtoDescricao";
     }
 
-    @GetMapping("/{id}")
-    public Produto produtoPorId(@PathVariable Long id) {
-        return service.produtoPorId(id);
+    @PutMapping("/update/{id}")
+    public String updateProduto(@PathVariable("id") Long id, Model model) {
+
+        Produto produto = new Produto();
+        service.updateProduto(id);
+
+        model.addAttribute("produto", produto);
+        return  "template/pages/estoque/produtoUpdateForm";
+    }
+
+    @GetMapping("/remove/{id}")
+    public String  removeProduto(@PathVariable Long id) {
+
+        service.remove(id);
+        return "/template/index";
     }
 
     @PutMapping("/entrada/{id}/{valor}")

@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:c="http://www.w3.org/1999/html">
   <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Solicitacao</title>
-    <!-- plugins:css -->
+
     <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
+
     <link rel="stylesheet" href="/vendors/select2/select2.min.css">
     <link rel="stylesheet" href="/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
     <link rel="stylesheet" href="/css/style.css">
-    <!-- End layout styles -->
+
     <link rel="shortcut icon" href="/images/favicon.png" />
   </head>
   <body>
@@ -90,7 +85,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/solicitacao">
+            <a class="nav-link" href="/api/solicitacao">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
@@ -98,7 +93,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="/ordem" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="/api/ordem" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
@@ -107,7 +102,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/produto">
+            <a class="nav-link" href="/api/produto">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -115,7 +110,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/ativo">
+            <a class="nav-link" href="/api/ativo">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
@@ -358,30 +353,26 @@
                   <div class="card-body">
                     <h4 class="card-title">Criar nova Solicitação de Serviço</h4>
                     <p class="card-description"> Basic form layout </p>
-                    <form class="forms-sample" action="#" th:action="@{/ativo/saveUpdate}" th:object="${ativos}" method="POST">
+                    <form class="forms-sample" action="#" th:action="@{/api/ativo/update/{id}}" th:object="${ativos}" method="POST">
                       <div class="form-group">
                         <label>Código</label>
                         <input type="text" th:field="*{codigo}" class="form-control" placeholder="Codigo" >
                       </div>
                       <div class="form-group">
-                        <label>Máquina</label>
-                        <input type="text"  th:field="*{setor}" class="form-control" id="maquina" placeholder="Maquina">
+                        <label>Setor</label>
+                        <input type="text"  th:field="*{setor}" class="form-control" id="maquina" placeholder="Setor">
                       </div >
                       <div class="form-group">
-                        <label>Setor</label>
-                        <input type="text"  th:field="*{dataInicioOperacao}" class="form-control" id="setor" placeholder="Setor">
+                        <label>Data Inínio Operação</label>
+                        <input type="text"  th:field="*{dataInicioOperacao}" class="form-control" id="setor" placeholder="Data inicial de operação">
                       </div>
                       <div class="form-group">
-                        <label>Nome Solicitante</label>
-                        <input type="text" th:field="*{nivelPrioridade}" class="form-control" id="nome_solicitante" placeholder="Nome solicitante">
+                        <label>Nível Prioridade</label>
+                        <input type="text" th:field="*{nivelPrioridade}" class="form-control" id="nome_solicitante" placeholder="Nível de prioridade">
                       </div>
 
-<!--                      <div class="form-check form-check-flat form-check-primary">-->
-<!--                        <label class="form-check-label">-->
-<!--                          <input type="checkbox" class="form-check-input">Ativo </label>-->
-<!--                      </div>-->
                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                      <a href="/ativo/"><button class="btn btn-dark">Cancel</button></a>
+                      <a href="/api/ativo/"><button class="btn btn-dark">Cancel</button></a>
                     </form>
                   </div>
                 </div>
@@ -392,26 +383,18 @@
               </div>
 
 
+    <script src="/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/vendors/select2/select2.min.js"></script>
+    <script src="/vendors/typeahead.js/typeahead.bundle.min.js"></script>
 
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="../../../static/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="../../../static/vendors/select2/select2.min.js"></script>
-    <script src="../../../static/vendors/typeahead.js/typeahead.bundle.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="../../../../static/js/off-canvas.js"></script>
-    <script src="../../../../static/js/hoverable-collapse.js"></script>
-    <script src="../../../../static/js/misc.js"></script>
-    <script src="../../../../static/js/settings.js"></script>
-    <script src="../../../../static/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="../../../../static/js/file-upload.js"></script>
-    <script src="../../../../static/js/typeahead.js"></script>
-    <script src="../../../../static/js/select2.js"></script>
+    <script src="/js/off-canvas.js"></script>
+    <script src="/js/hoverable-collapse.js"></script>
+    <script src="/js/misc.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/todolist.js"></script>
+    <script src="/js/file-upload.js"></script>
+    <script src="/js/typeahead.js"></script>
+    <script src="/js/select2.js"></script>
     <!-- End custom js for this page -->
   </body>
 </html>

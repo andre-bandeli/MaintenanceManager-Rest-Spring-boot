@@ -5,6 +5,7 @@ import com.br.Maintenance.maintenance.service.OrdemService;
 import com.br.Maintenance.maintenance.model.Solicitacao;
 import com.br.Maintenance.maintenance.service.serviceSolicitacao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -63,7 +64,7 @@ public class SolicitacaoController {
     public String saveSolicitacao(@ModelAttribute Solicitacao solicitacao, Model model) {
         solicitacaoService.saveSolicitacao(solicitacao);
         model.addAttribute("solicitacao", solicitacao);
-        return "/template/index";
+        return "redirect:/api/solicitacao";
     }
 
     @GetMapping("/view/{id}")
@@ -74,39 +75,16 @@ public class SolicitacaoController {
         return "template/pages/solicitacao/solicitacaoDescricao";
     }
 
-    @GetMapping("/update/{id}")
-    public String updateSolicitacao(@PathVariable("id") Long id, Model model) {
+    @PutMapping("/update/{id}")
+    public String Put(@PathVariable(value = "id") long id, Model model) {
 
-        Solicitacao solicitacao = solicitacaoService.getSolicitacaoById(id);
+        Solicitacao solicitacao = new Solicitacao();
+        solicitacaoService.updateSolicitacao(id);
+
         model.addAttribute("solicitacao", solicitacao);
+        return  "template/pages/solicitacao/solicitacaoUpdateForm";
 
-        return "template/pages/solicitacao/solicitacaoUpdateForm";
     }
-    @PostMapping("/saveUpdate")
-    public String saveUpdate(@ModelAttribute Solicitacao solicitacao, Model model) {
-        solicitacao.setId(solicitacao.getId());
-        solicitacao.setCodigo(solicitacao.getCodigo());
-        solicitacao.setMaquina(solicitacao.getMaquina());
-        solicitacao.setSetor(solicitacao.getSetor());
-        solicitacao.setNomeSolicitante(solicitacao.getNomeSolicitante());
-        solicitacao.setDescricao(solicitacao.getDescricao());
-        solicitacao.setActive(solicitacao.getActive());
-
-        solicitacaoService.saveSolicitacao(solicitacao);
-        model.addAttribute("solicitacao", solicitacao);
-        return "redirect:/solicitacao";
-    }
-
-//    @GetMapping("/so")
-//    public List<Solicitacao> solicitacaoServicos(Solicitacao solicitacaoServico){
-//        return solicitacaoService.listSolicitacoes(solicitacaoServico);
-//    }
-
-    @PostMapping("/addList")
-    public List<Solicitacao> addListSolicitacoes(List<Solicitacao> solicitacaoServicos) {
-        return solicitacaoService.salvarSolicitacoes(solicitacaoServicos);
-    }
-
 
     @GetMapping("/remove/{id}")
     public String  removeSolicitacao(@PathVariable Long id) {
@@ -114,5 +92,13 @@ public class SolicitacaoController {
         solicitacaoService.deleteSolicitacaoById(id);
         return "/template/index";
     }
+
+
+//    @PostMapping("/addList")
+//    public List<Solicitacao> addListSolicitacoes(List<Solicitacao> solicitacaoServicos) {
+//        return solicitacaoService.salvarSolicitacoes(solicitacaoServicos);
+//    }
+
+
 
 }
