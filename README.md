@@ -39,7 +39,7 @@ Além destas implementações, a idéia do app é ser um app funcional que retor
 
 ![picasion com_447c627a12da53273ed72619234bf78b](https://user-images.githubusercontent.com/87938869/161454683-958a3069-2ec6-4192-bd32-e1b5eba8f73a.gif)
 ![picasion com_db4fbe2ebb062d391eef09a874c7d5d9](https://user-images.githubusercontent.com/87938869/161454665-a9300510-ffb9-4f10-ac66-528385736e1a.gif)
-![picasion com_f55c1e633e86d6f462708755f2aabac0](https://user-images.githubusercontent.com/87938869/161454677-3cf3b7b6-d949-43a7-a921-bcbe78c236b3.gif)
+<!-- ![picasion com_f55c1e633e86d6f462708755f2aabac0](https://user-images.githubusercontent.com/87938869/161454677-3cf3b7b6-d949-43a7-a921-bcbe78c236b3.gif) -->
 
 
 
