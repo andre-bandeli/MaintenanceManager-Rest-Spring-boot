@@ -26,10 +26,10 @@ Projeto em estágio inicial de desenvolvimento.
 - thymeleaf
 - Bootstrap
 - HTML
+- Docker
 
 ### Próximas Implementações:
 
-- Implementação do Docker
 - Implemetação de filtros de busca
 - Criação de API para fornecedores -> Se comunicando com o estoque/compra
 - Implementação de mensageria com Kafka
